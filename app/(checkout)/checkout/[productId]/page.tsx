@@ -70,7 +70,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
         const productRes = await fetch(`/api/products/${params.productId}`);
         const productData = await productRes.json();
         if (!productData.success || !productData.data.is_active) {
-          toast.error('Urun bulunamadi');
+          toast.error('Ürün bulunamadı');
           router.push('/');
           return;
         }
@@ -105,7 +105,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           }
         }
       } catch (error) {
-        toast.error('Bir hata olustu');
+        toast.error('Bir hata oluştu');
         router.push('/');
       } finally {
         setIsLoading(false);
@@ -153,7 +153,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
         unitPrice: basePrice,
         totalPrice: totalPrice,
         displayPrice: formatCurrency(totalPrice, product.currency),
-        subtitle: `(${duration} ${period} pesin)`,
+        subtitle: `(${duration} ${period} peşin)`,
         duration,
         isRecurring: false,
       };
@@ -174,7 +174,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.email) {
-      toast.error('E-posta adresi zorunludur');
+      toast.error('E-posta adresi gereklidir');
       return;
     }
 
@@ -216,7 +216,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
       throw new Error('Invalid response');
     } catch (error: any) {
-      toast.error(error.message || 'Odeme baslatilamadi');
+      toast.error(error.message || 'Ödeme başlatılamadı');
       setIsProcessing(false);
     }
   };
@@ -387,7 +387,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                           }`}
                         >
                           <StripeLogo className="h-6 mx-auto mb-2 text-white" />
-                          <p className="text-xs text-gray-500">Uluslararasi</p>
+                          <p className="text-xs text-gray-500">Uluslararası</p>
                         </button>
                       )}
                       {availableProviders.includes('paytr') && (
@@ -401,7 +401,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                           }`}
                         >
                           <PayTRLogo className="h-6 mx-auto mb-2 text-white" />
-                          <p className="text-xs text-gray-500">Turkiye</p>
+                          <p className="text-xs text-gray-500">Türkiye</p>
                         </button>
                       )}
                     </div>
@@ -415,7 +415,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                   isLoading={isProcessing}
                   leftIcon={<Lock className="w-5 h-5" />}
                 >
-                  {isProcessing ? 'Isleniyor...' : 'Odemeye Gec'}
+                  {isProcessing ? 'İşleniyor...' : 'Ödemeye Geç'}
                 </Button>
               </form>
 
@@ -438,12 +438,12 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                   <ShieldCheck className="w-6 h-6 text-green-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">Guvenli Odeme Altyapisi</h3>
+                  <h3 className="font-semibold text-white mb-1">Güvenli Ödeme Altyapısı</h3>
                   <p className="text-sm text-gray-400 leading-relaxed">
-                    Odemeleriniz dunya capinda guvenilen{' '}
+                    Ödemeleriniz dünya çapında güvenilen{' '}
                     <span className="text-white font-medium">Stripe</span> ve{' '}
-                    <span className="text-white font-medium">PayTR</span> altyapilari uzerinden gerceklestirilmektedir.
-                    Kart bilgileriniz bizimle paylasilmaz.
+                    <span className="text-white font-medium">PayTR</span> altyapıları üzerinden gerçekleştirilmektedir.
+                    Kart bilgileriniz bizimle paylaşılmaz.
                   </p>
                 </div>
               </div>
@@ -458,7 +458,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           >
             <Card className="p-6 sticky top-6">
               <h2 className="text-lg font-semibold text-white mb-6">
-                Siparis Ozeti
+                Sipariş Özeti
               </h2>
 
               <div className="flex gap-4 pb-6 border-b border-dark-700">
@@ -483,7 +483,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                   {product.type === 'subscription' && (
                     <div className="flex flex-wrap gap-2 mt-2">
                       <span className="inline-block px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs rounded-full">
-                        {product.billing_period === 'monthly' ? 'Aylik' : 'Yillik'} Abonelik
+                        {product.billing_period === 'monthly' ? 'Aylık' : 'Yıllık'} Abonelik
                       </span>
                       {hasDuration && selectedDuration && (
                         <span className="inline-block px-2 py-0.5 bg-blue-500/20 text-blue-400 text-xs rounded-full">
@@ -497,7 +497,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
               {product.features && product.features.length > 0 && (
                 <div className="py-6 border-b border-dark-700">
-                  <p className="text-sm text-gray-400 mb-3">Dahil Olanlar:</p>
+                  <p className="text-sm text-gray-400 mb-3">Dahil Olanlar</p>
                   <ul className="space-y-2">
                     {product.features.slice(0, 4).map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-300">
@@ -514,7 +514,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                 {pricing && (
                   <>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-gray-400">Birim Fiyat</span>
+                      <span className="text-gray-400">Birim Fiyatı</span>
                       <span className="text-white">
                         {formatCurrency(pricing.unitPrice, product.currency)}
                         {product.type === 'subscription' && <span className="text-gray-500"> / {period}</span>}
@@ -523,7 +523,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
                     {hasDuration && selectedDuration && (
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-gray-400">Sure</span>
+                        <span className="text-gray-400">Süre</span>
                         <span className="text-white">{selectedDuration} {period}</span>
                       </div>
                     )}
@@ -539,7 +539,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
 
                     <div className="flex items-center justify-between pt-4 border-t border-dark-700">
                       <span className="text-lg font-semibold text-white">
-                        {selectedPaymentMode === 'upfront' ? 'Toplam' : 'Odenecek'}
+                        {selectedPaymentMode === 'upfront' ? 'Toplam' : 'Ödenecek'}
                       </span>
                       <div className="text-right">
                         <span className="text-2xl font-bold text-white">
@@ -559,13 +559,13 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-dark-900/50 border border-dark-800 rounded-xl p-4 text-center">
                 <Globe className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                <p className="text-xs text-gray-400">Dunya Capinda</p>
-                <p className="text-sm font-medium text-white">Gecerli Odeme</p>
+                <p className="text-xs text-gray-400">Dünya Çapında</p>
+                <p className="text-sm font-medium text-white">Geçerli Ödeme</p>
               </div>
               <div className="bg-dark-900/50 border border-dark-800 rounded-xl p-4 text-center">
                 <Fingerprint className="w-6 h-6 text-purple-400 mx-auto mb-2" />
                 <p className="text-xs text-gray-400">3D Secure</p>
-                <p className="text-sm font-medium text-white">Korumali</p>
+                <p className="text-sm font-medium text-white">Korumalı</p>
               </div>
             </div>
 
@@ -576,21 +576,21 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
                   {selectedProvider === 'stripe' ? (
                     <>
                       <div className="p-2 bg-[#635BFF]/10 rounded-lg">
-                        <StripeLogo className="h-4 text-[#635BFF]" />
+                        <StripeLogo className="text-lg text-[#635BFF]" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-white">Stripe ile Odeme</p>
-                        <p className="text-xs text-gray-500">190+ ulkede gecerli, PCI DSS uyumlu</p>
+                        <p className="text-sm font-medium text-white">Stripe ile Ödeme</p>
+                        <p className="text-xs text-gray-500">190+ ülkede geçerli, PCI DSS uyumlu</p>
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="p-2 bg-blue-500/10 rounded-lg">
-                        <PayTRLogo className="h-4 text-blue-400" />
+                        <PayTRLogo className="text-lg text-blue-400" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-white">PayTR ile Odeme</p>
-                        <p className="text-xs text-gray-500">BDDK lisansli, Turkiye'nin guvenilir odeme sistemi</p>
+                        <p className="text-sm font-medium text-white">PayTR ile Ödeme</p>
+                        <p className="text-xs text-gray-500">BDDK lisanslı, Türkiye'nin güvenilir ödeme sistemi</p>
                       </div>
                     </>
                   )}
@@ -611,7 +611,7 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 text-center">
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-green-500" />
-              <span className="text-sm text-gray-400">256-bit SSL Sertifikasi</span>
+              <span className="text-sm text-gray-400">256-bit SSL Sertifikası</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-blue-500" />
@@ -623,8 +623,8 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
             </div>
           </div>
           <p className="text-center text-xs text-gray-600 mt-4">
-            Odemeleriniz Stripe ve PayTR guvenli odeme altyapilari uzerinden islenme
-            ktedir. Tum islemler bankacilik standartlarina uygun olarak gerceklestirilir.
+            Ödemeleriniz Stripe ve PayTR güvenli ödeme altyapıları üzerinden işlenmektedir.
+            Tüm işlemler bankacılık standartlarına uygun olarak gerçekleştirilir.
           </p>
         </motion.div>
       </div>
