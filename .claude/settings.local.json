@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(dir /b \"c:\\\\Users\\\\Sonat\\\\Documents\\\\VS-CODE-PROJECTS\\\\PAY-STRUCTURE-ALL\\\\PAY-STRUCTURE\\\\app\")"
+    ]
+  }
+}
