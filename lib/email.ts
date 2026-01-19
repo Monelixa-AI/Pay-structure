@@ -1,5 +1,6 @@
+import 'server-only';
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
+import { render } from '@react-email/render';
 import { supabaseAdmin, getSettings } from '@/lib/supabase/admin';
 import { sendResendEmail } from '@/lib/resend';
 import {
@@ -44,8 +45,11 @@ export async function getEmailSettings() {
   };
 }
 
-function renderTemplate(Component: React.ComponentType<any>, props: Record<string, any>) {
-  return renderToStaticMarkup(React.createElement(Component, props));
+function renderTemplate(
+  Component: React.ComponentType<any>,
+  props: Record<string, any>
+) {
+  return render(React.createElement(Component, props));
 }
 
 async function logEmail(params: EmailLogParams) {
