@@ -95,7 +95,8 @@ export async function createCheckoutSession(params: {
   // Ödeme tutarını hesapla
   let amount = product.price;
   const effectivePaymentMode = paymentMode || product.default_payment_mode || 'recurring';
-  const effectiveDuration = subscriptionDuration || product.subscription_duration;
+  const effectiveDuration: number | undefined =
+    subscriptionDuration ?? product.subscription_duration ?? undefined;
 
   // Peşin ödeme modunda toplam tutarı hesapla
   if (product.type === 'subscription' && effectivePaymentMode === 'upfront' && effectiveDuration) {
