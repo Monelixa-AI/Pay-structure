@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Card, Input, Select, Switch, Button, Textarea } from '@/components/ui';
 import toast from 'react-hot-toast';
-import type { SiteSettings } from '@/types';
+import type { Currency, SiteSettings } from '@/types';
 
 interface GeneralSettingsFormProps {
   settings: SiteSettings;
@@ -23,12 +23,22 @@ const languageOptions = [
 export default function GeneralSettingsForm({ settings }: GeneralSettingsFormProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    site_name: string;
+    site_description: string;
+    contact_email: string;
+    support_email: string;
+    currency: Currency;
+    language: string;
+    maintenance_mode: boolean;
+    meta_title: string;
+    meta_description: string;
+  }>({
     site_name: settings.site_name || 'Monelixa',
     site_description: settings.site_description || '',
     contact_email: settings.contact_email || '',
     support_email: settings.support_email || '',
-    currency: settings.currency || 'TRY',
+    currency: (settings.currency || 'TRY') as Currency,
     language: settings.language || 'tr',
     maintenance_mode: settings.maintenance_mode || false,
     meta_title: settings.meta_title || '',
@@ -122,7 +132,7 @@ export default function GeneralSettingsForm({ settings }: GeneralSettingsFormPro
             options={currencyOptions}
             value={formData.currency}
             onChange={(e) =>
-              setFormData({ ...formData, currency: e.target.value })
+              setFormData({ ...formData, currency: e.target.value as Currency })
             }
           />
         </div>
