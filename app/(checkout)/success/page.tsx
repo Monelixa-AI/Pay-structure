@@ -7,6 +7,7 @@ import { Button, Card, Spinner } from '@/components/ui';
 import { Logo } from '@/components/Logo';
 import { CheckCircle, Download, ArrowRight, Mail } from 'lucide-react';
 import Link from 'next/link';
+// @ts-expect-error - canvas-confetti types issue
 import confetti from 'canvas-confetti';
 
 export default function SuccessPage() {

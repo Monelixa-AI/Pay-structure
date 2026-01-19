@@ -3,7 +3,12 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(find:*)",
-      "Bash(dir /b \"c:\\\\Users\\\\Sonat\\\\Documents\\\\VS-CODE-PROJECTS\\\\PAY-STRUCTURE-ALL\\\\PAY-STRUCTURE\\\\app\")"
+      "Bash(dir /b \"c:\\\\Users\\\\Sonat\\\\Documents\\\\VS-CODE-PROJECTS\\\\PAY-STRUCTURE-ALL\\\\PAY-STRUCTURE\\\\app\")",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm ls:*)"
     ]
   }
 }
