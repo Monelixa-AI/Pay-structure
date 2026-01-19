@@ -147,7 +147,9 @@ export default function AdminSidebar({ admin }: AdminSidebarProps) {
             <p className="text-xs text-gray-500 truncate">{admin.email}</p>
           </div>
           {admin.two_factor_enabled && (
-            <Shield className="w-4 h-4 text-green-400" title="2FA active" />
+            <span title="2FA active">
+              <Shield className="w-4 h-4 text-green-400" />
+            </span>
           )}
         </div>
       </div>
