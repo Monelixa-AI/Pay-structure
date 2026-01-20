@@ -30,7 +30,7 @@ export default function OrdersTable({ orders }: OrdersTableProps) {
       render: (order) => (
         <div>
           <p className="text-white font-medium">
-            {order.customer?.full_name || 'Musteri'}
+            {order.customer?.full_name || order.metadata?.customer_name || 'Musteri'}
           </p>
           <p className="text-xs text-gray-500">
             {order.customer?.email || order.customer_email || '-'}

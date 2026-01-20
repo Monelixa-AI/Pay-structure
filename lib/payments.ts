@@ -110,6 +110,10 @@ export async function createCheckoutSession(params: {
     amount,
     currency: product.currency,
     provider,
+    metadata: {
+      customer_name: customer.name || null,
+      customer_phone: customer.phone || null,
+    },
     subscriptionDuration: effectiveDuration,
     paymentMode: product.type === 'subscription' ? effectivePaymentMode : undefined,
   });
@@ -122,7 +126,10 @@ export async function createCheckoutSession(params: {
         customerId: customer.id,
         successUrl: `${successUrl}?order_id=${order.id}`,
         cancelUrl: `${cancelUrl}?order_id=${order.id}`,
-        metadata: { order_id: order.id },
+        metadata: {
+          order_id: order.id,
+          customer_name: customer.name || '',
+        },
         // Süreli subscription parametreleri
         subscriptionDuration: effectiveDuration,
         paymentMode: effectivePaymentMode,

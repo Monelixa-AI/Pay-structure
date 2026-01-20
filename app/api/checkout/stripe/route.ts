@@ -6,7 +6,14 @@ import type { Product, SubscriptionPaymentMode } from '@/types';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { productId, customerEmail, customerId, subscriptionDuration, paymentMode } = body;
+    const {
+      productId,
+      customerEmail,
+      customerName,
+      customerId,
+      subscriptionDuration,
+      paymentMode,
+    } = body;
 
     if (!productId || !customerEmail) {
       return NextResponse.json(
@@ -44,6 +51,7 @@ export async function POST(request: NextRequest) {
       customer: {
         id: customerId,
         email: customerEmail,
+        name: customerName,
       },
       provider: 'stripe',
       successUrl: `${baseUrl}/success`,

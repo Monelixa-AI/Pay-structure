@@ -192,12 +192,14 @@ export default async function OrderDetailPage({
                 </p>
               </div>
 
-              {order.customer?.full_name && (
+              {(order.customer?.full_name || order.metadata?.customer_name) && (
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">
                     Ad Soyad
                   </p>
-                  <p className="text-white">{order.customer.full_name}</p>
+                  <p className="text-white">
+                    {order.customer?.full_name || order.metadata?.customer_name}
+                  </p>
                 </div>
               )}
 
