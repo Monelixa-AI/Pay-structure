@@ -9,6 +9,9 @@ import FAQ from '@/components/marketing/FAQ';
 import CTA from '@/components/marketing/CTA';
 import ProductCard from '@/components/marketing/ProductCard';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getProducts(): Promise<Product[]> {
   const { data, error } = await supabaseAdmin
     .from('products')

@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import { supabaseAdmin } from '@/lib/supabase/admin';
 import ProductCard from '@/components/marketing/ProductCard';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: 'Urunler | Monelixa',
   description: 'Dijital urunlerimizi kesfedin.',

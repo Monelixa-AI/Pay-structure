@@ -3,6 +3,9 @@ import { supabaseAdmin } from '@/lib/supabase/admin';
 import type { Product } from '@/types';
 import PricingSection from '@/components/marketing/PricingSection';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: 'Fiyatlandirma | Monelixa',
   description: 'Aylik ve yillik abonelik planlarini karsilastirin.',
