@@ -1,12 +1,13 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Card, Button } from '@/components/ui';
+import { Card, Button, Spinner } from '@/components/ui';
 import { XCircle, ArrowLeft } from 'lucide-react';
 
-export default function CancelPage() {
+function CancelContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id');
 
@@ -44,5 +45,21 @@ export default function CancelPage() {
         </Card>
       </motion.div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-dark-950 flex items-center justify-center px-4">
+      <Spinner size="lg" />
+    </div>
+  );
+}
+
+export default function CancelPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <CancelContent />
+    </Suspense>
   );
 }

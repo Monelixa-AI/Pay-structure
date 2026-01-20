@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Button, Card, Spinner } from '@/components/ui';
@@ -9,7 +9,7 @@ import { CheckCircle, Download, ArrowRight, Mail } from 'lucide-react';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id');
   const [order, setOrder] = useState<any>(null);
@@ -123,5 +123,21 @@ export default function SuccessPage() {
         </Card>
       </motion.div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-dark-950 flex items-center justify-center px-4">
+      <Spinner size="lg" />
+    </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <SuccessContent />
+    </Suspense>
   );
 }
