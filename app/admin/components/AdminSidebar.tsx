@@ -40,7 +40,7 @@ const menuItems = [
   {
     title: 'Iletisim',
     items: [
-      { name: 'Mesajlar', href: '/admin/messages', icon: MessageSquare },
+      { name: 'Mesajlar', href: '/admin/contacts', icon: MessageSquare },
       { name: 'Email Sablonlari', href: '/admin/email-templates', icon: Mail },
       { name: 'Email Logs', href: '/admin/email-logs', icon: Mail },
     ],
