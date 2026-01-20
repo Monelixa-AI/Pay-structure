@@ -101,10 +101,10 @@ export function StripeSecurity() {
         gerceklestirilir. Kart bilgileriniz bizim sunucularimizda saklanmaz,
         dogrudan Stripe altyapisi uzerinden islenir.
       </p>
-      <div className="flex items-center justify-center gap-3 mt-3">
-        <img src="/visa.svg" alt="Visa" className="h-6 opacity-60" />
-        <img src="/mastercard.svg" alt="Mastercard" className="h-6 opacity-60" />
-        <img src="/amex.svg" alt="Amex" className="h-6 opacity-60" />
+      <div className="flex items-center justify-center gap-4 mt-3">
+        <img src="/visa.svg" alt="Visa" className="h-8" />
+        <img src="/mastercard.svg" alt="Mastercard" className="h-8" />
+        <img src="/amex.svg" alt="Amex" className="h-8" />
       </div>
     </div>
   );

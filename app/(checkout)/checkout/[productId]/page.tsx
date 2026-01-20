@@ -27,18 +27,12 @@ const PayTRLogo = ({ className }: { className?: string }) => (
 
 // Visa Logo
 const VisaLogo = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 50 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19.13 15.58h-3.88L17.6.42h3.88l-2.35 15.16zM13.07.42L9.35 10.8l-.44-2.24L7.6 2.07S7.44.42 5.36.42H.07L0 .72s2.28.47 4.95 2.07l4.12 15.79h4.05L17.2.42h-4.13zM45.94.42h-3.22c-1 0-1.74.29-2.18 1.33l-6.17 14.83h4.36l.87-2.39h5.32l.5 2.39h3.85L45.94.42zm-5.12 10.5l2.2-6.03 1.25 6.03h-3.45zM35.95 4.21l.6-3.45S34.47.01 32.3.01c-2.32 0-7.83 1.01-7.83 5.94 0 4.64 6.48 4.7 6.48 7.14s-5.81 2-7.72.46l-.62 3.6s2.12.99 5.35.99c3.24 0 8.1-1.67 8.1-6.14 0-4.67-6.54-5.1-6.54-7.14s4.56-1.76 6.43-.65z"/>
-  </svg>
+  <img src="/visa.svg" alt="Visa" className={className} />
 );
 
 // Mastercard Logo
 const MastercardLogo = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 40 25" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12.5" cy="12.5" r="12.5" fill="#EB001B"/>
-    <circle cx="27.5" cy="12.5" r="12.5" fill="#F79E1B"/>
-    <path d="M20 4.37a12.44 12.44 0 0 0-4.5 8.13 12.44 12.44 0 0 0 4.5 8.13 12.44 12.44 0 0 0 4.5-8.13A12.44 12.44 0 0 0 20 4.37z" fill="#FF5F00"/>
-  </svg>
+  <img src="/mastercard.svg" alt="Mastercard" className={className} />
 );
 
 interface CheckoutPageProps {
