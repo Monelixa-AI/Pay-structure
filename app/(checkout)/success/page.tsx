@@ -64,9 +64,9 @@ function SuccessContent() {
             <CheckCircle className="w-10 h-10 text-green-500" />
           </motion.div>
 
-          <h1 className="text-2xl font-bold text-white mb-2">Ödeme Başarılı!</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Odeme Basarili!</h1>
           <p className="text-gray-400 mb-6">
-            Siparişiniz başarıyla alındı. Teşekkür ederiz!
+            Siparisiniz basariyla alindi. Tesekkur ederiz!
           </p>
 
           {isLoading ? (
@@ -76,15 +76,15 @@ function SuccessContent() {
           ) : order ? (
             <div className="bg-dark-800 rounded-xl p-4 mb-6 text-left">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-gray-400">Sipariş No</span>
+                <span className="text-sm text-gray-400">Siparis No</span>
                 <span className="text-sm font-mono text-white">
                   #{order.id.slice(0, 8).toUpperCase()}
                 </span>
               </div>
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-gray-400">Ürün</span>
+                <span className="text-sm text-gray-400">Urun</span>
                 <span className="text-sm text-white">
-                  {order.product?.name || 'Ürün'}
+                  {order.product?.name || 'Urun'}
                 </span>
               </div>
               <div className="flex justify-between items-center">
@@ -102,7 +102,7 @@ function SuccessContent() {
           <div className="flex items-center gap-3 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl mb-6">
             <Mail className="w-5 h-5 text-blue-400" />
             <p className="text-sm text-blue-300">
-              Onay e-postası gönderildi
+              Onay e-postasi gonderildi
             </p>
           </div>
 
@@ -110,13 +110,13 @@ function SuccessContent() {
             {order?.invoice_url && (
               <a href={order.invoice_url} target="_blank" rel="noopener noreferrer">
                 <Button variant="secondary" className="w-full" leftIcon={<Download className="w-4 h-4" />}>
-                  Fatura İndir
+                  Fatura Indir
                 </Button>
               </a>
             )}
             <Link href="/">
               <Button className="w-full" rightIcon={<ArrowRight className="w-4 h-4" />}>
-                Ana Sayfaya Dön
+                Ana Sayfaya Don
               </Button>
             </Link>
           </div>

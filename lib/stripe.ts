@@ -47,7 +47,7 @@ export async function createStripeCheckoutSession(params: {
   successUrl: string;
   cancelUrl: string;
   metadata?: Record<string, string>;
-  // Süreli subscription parametreleri
+  // Sureli subscription parametreleri
   subscriptionDuration?: number;
   paymentMode?: SubscriptionPaymentMode;
 }): Promise<{ sessionId: string; url: string }> {
@@ -70,24 +70,24 @@ export async function createStripeCheckoutSession(params: {
     );
   }
 
-  // Süreli subscription ve ödeme modu belirleme
+  // Sureli subscription ve odeme modu belirleme
   const hasDuration = subscriptionDuration && subscriptionDuration > 0;
   const isUpfrontPayment = paymentMode === 'upfront' && hasDuration;
 
-  // Peşin ödeme durumunda subscription yerine tek seferlik ödeme yapılır
-  // Recurring durumunda subscription oluşturulur ve cancel_at ile bitiş tarihi belirlenir
+  // Pesin odeme durumunda subscription yerine tek seferlik odeme yapilir
+  // Recurring durumunda subscription olusturulur ve cancel_at ile bitis tarihi belirlenir
   const isSubscriptionMode = product.type === 'subscription' && !isUpfrontPayment;
 
   // Fiyat hesaplama
   let unitAmount = Math.round(product.price * 100);
   let quantity = 1;
 
-  // Peşin ödeme: toplam tutarı hesapla
+  // Pesin odeme: toplam tutari hesapla
   if (isUpfrontPayment && subscriptionDuration) {
     unitAmount = Math.round(product.price * subscriptionDuration * 100);
   }
 
-  // Abonelik bitiş tarihi hesaplama
+  // Abonelik bitis tarihi hesaplama
   let cancelAt: number | undefined;
   if (isSubscriptionMode && hasDuration) {
     const now = new Date();
@@ -151,7 +151,7 @@ export async function createStripeCheckoutSession(params: {
             subscription_duration: subscriptionDuration?.toString() || '',
             payment_mode: paymentMode,
           },
-          // Süreli subscription için bitiş tarihi
+          // Sureli subscription icin bitis tarihi
           ...(cancelAt ? { cancel_at: cancelAt } : {}),
         }
       : undefined,

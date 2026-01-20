@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
       is_featured,
       sort_order,
       metadata,
-      // Süreli subscription alanları
+      // Sureli subscription alanlari
       subscription_duration,
       duration_options,
       allow_payment_mode_choice,
@@ -98,7 +98,7 @@ export async function POST(request: NextRequest) {
         is_featured: is_featured ?? false,
         sort_order: sort_order ?? 0,
         metadata: metadata || {},
-        // Süreli subscription alanları
+        // Sureli subscription alanlari
         subscription_duration: type === 'subscription' ? subscription_duration : null,
         duration_options: type === 'subscription' ? duration_options : null,
         allow_payment_mode_choice: type === 'subscription' ? (allow_payment_mode_choice ?? false) : false,

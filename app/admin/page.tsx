@@ -1,4 +1,4 @@
-﻿import { supabaseAdmin, getSettings } from '@/lib/supabase/admin';
+import { supabaseAdmin, getSettings } from '@/lib/supabase/admin';
 import StatsCard from './components/StatsCard';
 import RevenueChart from './components/RevenueChart';
 import RecentOrders from './components/RecentOrders';
@@ -12,9 +12,9 @@ import {
 } from 'lucide-react';
 import type { DashboardStats, ChartData, Order } from '@/types';
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 // Fetch Dashboard Stats
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 async function getDashboardStats(): Promise<DashboardStats> {
   const now = new Date();
   const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
@@ -31,7 +31,7 @@ async function getDashboardStats(): Promise<DashboardStats> {
   const totalRevenue =
     currentRevenue?.reduce((sum, o) => sum + Number(o.amount), 0) || 0;
 
-  // GeÃ§en ay toplam gelir
+  // Gecen ay toplam gelir
   const { data: lastRevenue } = await supabaseAdmin
     .from('orders')
     .select('amount')
@@ -42,13 +42,13 @@ async function getDashboardStats(): Promise<DashboardStats> {
   const lastMonthRevenue =
     lastRevenue?.reduce((sum, o) => sum + Number(o.amount), 0) || 0;
 
-  // Bu ay sipariÅŸ sayÄ±sÄ±
+  // Bu ay siparis sayisi
   const { count: currentOrders } = await supabaseAdmin
     .from('orders')
     .select('*', { count: 'exact', head: true })
     .gte('created_at', startOfMonth.toISOString());
 
-  // GeÃ§en ay sipariÅŸ sayÄ±sÄ±
+  // Gecen ay siparis sayisi
   const { count: lastOrders } = await supabaseAdmin
     .from('orders')
     .select('*', { count: 'exact', head: true })
@@ -61,13 +61,13 @@ async function getDashboardStats(): Promise<DashboardStats> {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  // Bu ay yeni mÃ¼ÅŸteriler
+  // Bu ay yeni musteriler
   const { count: newCustomers } = await supabaseAdmin
     .from('customers')
     .select('*', { count: 'exact', head: true })
     .gte('created_at', startOfMonth.toISOString());
 
-  // GeÃ§en ay yeni mÃ¼ÅŸteriler
+  // Gecen ay yeni musteriler
   const { count: lastCustomers } = await supabaseAdmin
     .from('customers')
     .select('*', { count: 'exact', head: true })
@@ -81,7 +81,7 @@ async function getDashboardStats(): Promise<DashboardStats> {
     newCustomers: newCustomers || 0,
     revenueChange: calculatePercentageChange(totalRevenue, lastMonthRevenue),
     ordersChange: calculatePercentageChange(currentOrders || 0, lastOrders || 0),
-    subscriptionsChange: 0, // Basitlik iÃ§in
+    subscriptionsChange: 0,
     customersChange: calculatePercentageChange(
       newCustomers || 0,
       lastCustomers || 0
@@ -89,9 +89,9 @@ async function getDashboardStats(): Promise<DashboardStats> {
   };
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Fetch Chart Data (Son 90 gÃ¼n)
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
+// Fetch Chart Data (Son 90 gun)
+// ─────────────────────────────────────────────────────────────────
 async function getChartData(): Promise<ChartData[]> {
   const days = 90;
   const data: ChartData[] = [];
@@ -121,9 +121,9 @@ async function getChartData(): Promise<ChartData[]> {
   return data;
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 // Fetch Recent Orders
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 async function getRecentOrders(): Promise<Order[]> {
   const { data } = await supabaseAdmin
     .from('orders')
@@ -140,9 +140,9 @@ async function getRecentOrders(): Promise<Order[]> {
   return (data || []) as Order[];
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 // Page Component
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 export default async function AdminDashboard() {
   const [stats, chartData, recentOrders, settings] = await Promise.all([
     getDashboardStats(),
@@ -158,7 +158,7 @@ export default async function AdminDashboard() {
       {/* Page Header */}
       <div>
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-        <p className="text-gray-400 mt-1">HoÅŸ geldiniz! Ä°ÅŸte genel bakÄ±ÅŸ.</p>
+        <p className="text-gray-400 mt-1">Hos geldiniz! Iste genel bakis.</p>
       </div>
 
       {/* Stats Grid */}
@@ -172,7 +172,7 @@ export default async function AdminDashboard() {
           delay={0}
         />
         <StatsCard
-          title="SipariÅŸler"
+          title="Siparisler"
           value={stats.totalOrders}
           change={stats.ordersChange}
           icon={<ShoppingCart className="w-6 h-6" />}
@@ -188,7 +188,7 @@ export default async function AdminDashboard() {
           delay={0.2}
         />
         <StatsCard
-          title="Yeni MÃ¼ÅŸteriler"
+          title="Yeni Musteriler"
           value={stats.newCustomers}
           change={stats.customersChange}
           icon={<Users className="w-6 h-6" />}
@@ -210,20 +210,20 @@ export default async function AdminDashboard() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <QuickActionCard
-          title="Yeni ÃœrÃ¼n Ekle"
-          description="Yeni bir abonelik planÄ± oluÅŸturun"
+          title="Yeni Urun Ekle"
+          description="Yeni bir abonelik plani olusturun"
           href="/admin/products"
           icon={<TrendingUp className="w-5 h-5" />}
         />
         <QuickActionCard
-          title="AyarlarÄ± DÃ¼zenle"
-          description="Site ve Ã¶deme ayarlarÄ±nÄ± yÃ¶netin"
+          title="Ayarlari Duzenle"
+          description="Site ve odeme ayarlarini yonetin"
           href="/admin/settings"
           icon={<TrendingUp className="w-5 h-5" />}
         />
         <QuickActionCard
-          title="MesajlarÄ± Kontrol Et"
-          description="Gelen iletiÅŸim formlarÄ±nÄ± gÃ¶rÃ¼n"
+          title="Mesajlari Kontrol Et"
+          description="Gelen iletisim formlarini gorun"
           href="/admin/contacts"
           icon={<TrendingUp className="w-5 h-5" />}
         />
@@ -232,9 +232,9 @@ export default async function AdminDashboard() {
   );
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 // Quick Action Card
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────
 function QuickActionCard({
   title,
   description,

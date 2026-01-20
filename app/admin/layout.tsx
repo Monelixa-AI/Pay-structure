@@ -8,7 +8,7 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Auth kontrolü
+  // Auth kontrolu
   const user = await getCurrentUser();
 
   if (!user) {

@@ -71,14 +71,14 @@ export async function updateLastLogin(adminId: string, ip?: string) {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Create Initial Admin (ilk kurulum için)
+// Create Initial Admin (ilk kurulum icin)
 // ─────────────────────────────────────────────────────────────────
 export async function createInitialAdmin(
   authUserId: string,
   email: string,
   fullName: string
 ): Promise<AdminUser | null> {
-  // Zaten admin var mı kontrol et
+  // Zaten admin var mi kontrol et
   const existingAdmin = await getAdminUser(authUserId);
   if (existingAdmin) return existingAdmin;
 

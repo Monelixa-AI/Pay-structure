@@ -12,7 +12,7 @@ export const supabaseAdmin = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY || supabaseAnonKey
 );
 
-// Helper: Tüm settings'i map olarak al
+// Helper: Tum settings'i map olarak al
 export async function getSettings(): Promise<Record<string, string>> {
   const { data, error } = await supabaseAdmin
     .from('settings')
@@ -45,7 +45,7 @@ export async function getSetting(key: string): Promise<string | null> {
   return data?.value || null;
 }
 
-// Helper: Setting güncelle
+// Helper: Setting guncelle
 export async function updateSetting(key: string, value: string): Promise<boolean> {
   const { error } = await supabaseAdmin
     .from('settings')

@@ -30,10 +30,10 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
     setIsLoggingOut(true);
     try {
       await supabase.auth.signOut();
-      toast.success('Çıkış yapıldı');
+      toast.success('Cikis yapildi');
       router.push('/login');
     } catch (error) {
-      toast.error('Çıkış yapılırken bir hata oluştu');
+      toast.error('Cikis yapilirken bir hata olustu');
     } finally {
       setIsLoggingOut(false);
     }
@@ -63,7 +63,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
           className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:text-white transition-colors"
         >
           <ExternalLink className="w-4 h-4" />
-          Siteyi Gör
+          Siteyi Gor
         </a>
 
         {/* Notifications */}
@@ -111,7 +111,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
                     <p className="text-sm text-gray-500">{admin.email}</p>
                     <div className="flex items-center gap-2 mt-2">
                       <span className="px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs rounded-full">
-                        {admin.role === 'super_admin' ? 'Süper Admin' : 'Admin'}
+                        {admin.role === 'super_admin' ? 'Super Admin' : 'Admin'}
                       </span>
                       {admin.two_factor_enabled && (
                         <span className="flex items-center gap-1 px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full">
@@ -132,7 +132,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
                       className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-dark-800 rounded-lg transition-colors"
                     >
                       <User className="w-4 h-4" />
-                      Profil Ayarları
+                      Profil Ayarlari
                     </button>
                     <button
                       onClick={() => {
@@ -143,7 +143,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
                       className="w-full flex items-center gap-3 px-3 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-colors"
                     >
                       <LogOut className="w-4 h-4" />
-                      {isLoggingOut ? 'Çıkış yapılıyor...' : 'Çıkış Yap'}
+                      {isLoggingOut ? 'Cikis yapiliyor...' : 'Cikis Yap'}
                     </button>
                   </div>
                 </motion.div>

@@ -59,16 +59,16 @@ export async function createPayTRCheckoutSession(params: {
   userIp: string;
   successUrl: string;
   failUrl: string;
-  // Süreli subscription için
+  // Sureli subscription icin
   subscriptionDuration?: number;
   paymentMode?: SubscriptionPaymentMode;
 }): Promise<{ token: string; iframeUrl: string } | null> {
   const { product, customer, orderId, userIp, successUrl, failUrl, subscriptionDuration, paymentMode } = params;
 
-  // PayTR subscription desteklemiyor, bu yüzden toplam tutar hesaplanmış olarak geliyor
+  // PayTR subscription desteklemiyor, bu yuzden toplam tutar hesaplanmis olarak geliyor
   const paymentAmount = Math.round(product.price * 100);
 
-  // Ürün adını süre bilgisiyle güncelle
+  // Urun adini sure bilgisiyle guncelle
   let productName = product.name;
   if (subscriptionDuration && subscriptionDuration > 0) {
     const period = product.billing_period === 'monthly' ? 'ay' : 'yil';

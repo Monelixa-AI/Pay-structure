@@ -23,9 +23,9 @@ type Period = '7d' | '30d' | '90d';
 export default function RevenueChart({ data }: RevenueChartProps) {
   const [period, setPeriod] = useState<Period>('30d');
   const periods: { value: Period; label: string }[] = [
-    { value: '7d', label: '7 Gün' },
-    { value: '30d', label: '30 Gün' },
-    { value: '90d', label: '90 Gün' },
+    { value: '7d', label: '7 Gun' },
+    { value: '30d', label: '30 Gun' },
+    { value: '90d', label: '90 Gun' },
   ];
 
   // Filter data based on period
@@ -59,8 +59,8 @@ export default function RevenueChart({ data }: RevenueChartProps) {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-white">Gelir Grafiği</h3>
-          <p className="text-sm text-gray-400 mt-1">Zaman bazlı gelir analizi</p>
+          <h3 className="text-lg font-semibold text-white">Gelir Grafigi</h3>
+          <p className="text-sm text-gray-400 mt-1">Zaman bazli gelir analizi</p>
         </div>
 
         {/* Period Selector */}

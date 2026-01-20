@@ -78,7 +78,7 @@ export async function PUT(
         is_featured: body.is_featured,
         sort_order: body.sort_order,
         metadata: body.metadata,
-        // Süreli subscription alanları
+        // Sureli subscription alanlari
         subscription_duration: body.type === 'subscription' ? body.subscription_duration : null,
         duration_options: body.type === 'subscription' ? body.duration_options : null,
         allow_payment_mode_choice: body.type === 'subscription' ? (body.allow_payment_mode_choice ?? false) : false,

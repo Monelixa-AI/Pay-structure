@@ -15,10 +15,10 @@ export async function GET(request: NextRequest) {
     } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error && user) {
-      // Admin kontrolü
+      // Admin kontrolu
       let adminUser = await getAdminUser(user.id);
 
-      // İlk admin oluşturma (development için)
+      // Ilk admin olusturma (development icin)
       if (!adminUser && process.env.NODE_ENV === 'development') {
         adminUser = await createInitialAdmin(
           user.id,
@@ -30,13 +30,13 @@ export async function GET(request: NextRequest) {
       }
 
       if (adminUser) {
-        // 2FA kontrolü gerekiyorsa
+        // 2FA kontrolu gerekiyorsa
         if (adminUser.two_factor_enabled) {
           return NextResponse.redirect(`${origin}/login?verify2fa=true`);
         }
         return NextResponse.redirect(`${origin}${redirect}`);
       } else {
-        // Müşteri olarak giriş yap (portal'a yönlendir)
+        // Musteri olarak giris yap (portal'a yonlendir)
         return NextResponse.redirect(`${origin}/portal`);
       }
     }

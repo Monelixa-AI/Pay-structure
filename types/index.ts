@@ -1,7 +1,7 @@
 export type Currency = 'TRY' | 'USD' | 'EUR';
 export type ProductType = 'one_time' | 'subscription';
 export type BillingPeriod = 'monthly' | 'yearly';
-export type SubscriptionPaymentMode = 'recurring' | 'upfront'; // recurring = aylık ödeme, upfront = peşin toplu ödeme
+export type SubscriptionPaymentMode = 'recurring' | 'upfront'; // recurring = aylik odeme, upfront = pesin toplu odeme
 
 export const CURRENCY_SYMBOLS: Record<Currency, string> = {
   TRY: '\u20ba',
@@ -25,11 +25,11 @@ export interface Product {
   metadata?: Record<string, any> | null;
   stripe_price_id_monthly?: string | null;
   stripe_price_id_yearly?: string | null;
-  // Süreli subscription alanları
-  subscription_duration: number | null; // null = sınırsız, sayı = ay cinsinden sabit süre
-  duration_options: number[] | null; // [3, 6, 12] gibi kullanıcı seçenekleri (null ise seçenek yok)
-  allow_payment_mode_choice: boolean; // true ise kullanıcı peşin/aylık seçebilir
-  default_payment_mode: SubscriptionPaymentMode; // varsayılan ödeme modu
+  // Sureli subscription alanlari
+  subscription_duration: number | null; // null = sinirsiz, sayi = ay cinsinden sabit sure
+  duration_options: number[] | null; // [3, 6, 12] gibi kullanici secenekleri (null ise secenek yok)
+  allow_payment_mode_choice: boolean; // true ise kullanici pesin/aylik secebilir
+  default_payment_mode: SubscriptionPaymentMode; // varsayilan odeme modu
   created_at: string;
   updated_at: string;
 }

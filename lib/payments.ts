@@ -36,7 +36,7 @@ export async function createOrder(params: {
   currency: string;
   provider: PaymentProvider;
   metadata?: Record<string, any>;
-  // Süreli subscription için
+  // Sureli subscription icin
   subscriptionDuration?: number;
   paymentMode?: SubscriptionPaymentMode;
 }): Promise<Order> {
@@ -86,19 +86,19 @@ export async function createCheckoutSession(params: {
   userIp?: string;
   successUrl: string;
   cancelUrl: string;
-  // Süreli subscription için
+  // Sureli subscription icin
   subscriptionDuration?: number;
   paymentMode?: SubscriptionPaymentMode;
 }): Promise<CheckoutSession | null> {
   const { product, customer, provider, userIp, successUrl, cancelUrl, subscriptionDuration, paymentMode } = params;
 
-  // Ödeme tutarını hesapla
+  // Odeme tutarini hesapla
   let amount = product.price;
   const effectivePaymentMode = paymentMode || product.default_payment_mode || 'recurring';
   const effectiveDuration: number | undefined =
     subscriptionDuration ?? product.subscription_duration ?? undefined;
 
-  // Peşin ödeme modunda toplam tutarı hesapla
+  // Pesin odeme modunda toplam tutari hesapla
   if (product.type === 'subscription' && effectivePaymentMode === 'upfront' && effectiveDuration) {
     amount = product.price * effectiveDuration;
   }
@@ -130,7 +130,7 @@ export async function createCheckoutSession(params: {
           order_id: order.id,
           customer_name: customer.name || '',
         },
-        // Süreli subscription parametreleri
+        // Sureli subscription parametreleri
         subscriptionDuration: effectiveDuration,
         paymentMode: effectivePaymentMode,
       });
@@ -160,7 +160,7 @@ export async function createCheckoutSession(params: {
     if (provider === 'paytr') {
       if (!userIp) throw new Error('User IP required for PayTR');
 
-      // PayTR için modifiye edilmiş product (peşin ödeme için fiyat ayarlanmış)
+      // PayTR icin modifiye edilmis product (pesin odeme icin fiyat ayarlanmis)
       const paytrProduct = {
         ...product,
         price: amount, // createOrder'da hesaplanan tutar

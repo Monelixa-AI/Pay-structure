@@ -15,12 +15,12 @@ interface ProductCardProps {
 export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const period = product.billing_period === 'monthly' ? 'ay' : 'yil';
 
-  // Süre seçenekleri veya sabit süre var mı?
+  // Sure secenekleri veya sabit sure var mi?
   const hasDurationOptions = product.duration_options && product.duration_options.length > 0;
   const hasFixedDuration = product.subscription_duration && product.subscription_duration > 0;
   const hasDuration = hasDurationOptions || hasFixedDuration;
 
-  // Fiyat gösterimi için hesaplama
+  // Fiyat gosterimi icin hesaplama
   const getPriceDisplay = () => {
     if (product.type === 'one_time') {
       return {
@@ -29,7 +29,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       };
     }
 
-    // Sınırsız subscription
+    // Sinirsiz subscription
     if (!hasDuration) {
       return {
         price: formatCurrency(product.price, product.currency),
@@ -37,7 +37,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       };
     }
 
-    // Süre seçenekleri varsa
+    // Sure secenekleri varsa
     if (hasDurationOptions) {
       const minDuration = Math.min(...product.duration_options!);
       const maxDuration = Math.max(...product.duration_options!);
@@ -48,7 +48,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       };
     }
 
-    // Sabit süreli subscription
+    // Sabit sureli subscription
     return {
       price: formatCurrency(product.price, product.currency),
       subtitle: `/ ${period}`,
@@ -131,7 +131,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           )}
         </div>
 
-        {/* Süre seçenekleri preview */}
+        {/* Sure secenekleri preview */}
         {hasDurationOptions && (
           <div className="flex flex-wrap gap-1.5 mb-4">
             {product.duration_options!.slice(0, 4).map((duration) => (

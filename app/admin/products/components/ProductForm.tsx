@@ -43,7 +43,7 @@ const durationTypeOptions = [
 ];
 
 const paymentModeOptions = [
-  { value: 'recurring', label: 'Tekrarli Odeme (Her periyod oде)' },
+  { value: 'recurring', label: 'Tekrarli Odeme (Her periyod ode)' },
   { value: 'upfront', label: 'Pesin Odeme (Toplam tutar tek seferde)' },
 ];
 
@@ -63,10 +63,10 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
     is_active: true,
     is_featured: false,
     sort_order: 0,
-    // Süreli subscription alanları
+    // Sureli subscription alanlari
     duration_type: 'unlimited' as 'unlimited' | 'fixed' | 'user_choice',
-    subscription_duration: '' as string, // Sabit süre için (ay)
-    duration_options: '' as string, // Kullanıcı seçenekleri için (virgülle ayrılmış)
+    subscription_duration: '' as string, // Sabit sure icin (ay)
+    duration_options: '' as string, // Kullanici secenekleri icin (virgulle ayrilmis)
     allow_payment_mode_choice: false,
     default_payment_mode: 'recurring' as SubscriptionPaymentMode,
   });
@@ -345,7 +345,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
             </div>
           </Card>
 
-          {/* Süreli Subscription Ayarları */}
+          {/* Sureli Subscription Ayarlari */}
           {formData.type === 'subscription' && (
             <Card className="p-6">
               <div className="flex items-center gap-2 mb-6">
@@ -383,7 +383,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
 
                 {formData.duration_type === 'user_choice' && (
                   <Input
-                    label={`Sure Secenekleri (${formData.billing_period === 'monthly' ? 'ay' : 'yil'}, virgülle ayirin)`}
+                    label={`Sure Secenekleri (${formData.billing_period === 'monthly' ? 'ay' : 'yil'}, virgulle ayirin)`}
                     placeholder="orn: 3, 6, 12"
                     value={formData.duration_options}
                     onChange={(e) =>
@@ -426,7 +426,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                       </div>
                     </div>
 
-                    {/* Örnek Fiyat Hesaplaması */}
+                    {/* Ornek Fiyat Hesaplamasi */}
                     {calculateExamplePrice() && (
                       <div className="bg-dark-800 rounded-lg p-4 border border-dark-700">
                         <div className="flex items-start gap-2">

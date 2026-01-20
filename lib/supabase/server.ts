@@ -16,7 +16,7 @@ export function createClient() {
           try {
             cookieStore.set({ name, value, ...options });
           } catch (error) {
-            // Server component'te set çalışmaz, ignore
+            // Server component'te set calismaz, ignore
           }
         },
         remove(name: string, options: CookieOptions) {

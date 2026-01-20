@@ -14,7 +14,7 @@ export function generateTwoFactorSecret(): string {
 }
 
 // ─────────────────────────────────────────────────────────────────
-// Encrypt Secret (DB'de saklamak için)
+// Encrypt Secret (DB'de saklamak icin)
 // ─────────────────────────────────────────────────────────────────
 export function encryptSecret(secret: string): string {
   return CryptoJS.AES.encrypt(secret, ENCRYPTION_KEY).toString();

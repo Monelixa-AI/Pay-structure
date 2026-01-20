@@ -35,10 +35,10 @@ export default function Setup2FAPage() {
         setQrCode(data.qrCode);
         setSecret(data.secret);
       } else {
-        toast.error('2FA oluşturulurken bir hata oluştu.');
+        toast.error('2FA olusturulurken bir hata olustu.');
       }
     } catch (error) {
-      toast.error('Bir hata oluştu.');
+      toast.error('Bir hata olustu.');
     }
   };
 
@@ -48,7 +48,7 @@ export default function Setup2FAPage() {
   const copySecret = () => {
     navigator.clipboard.writeText(secret);
     setCopied(true);
-    toast.success('Kod kopyalandı!');
+    toast.success('Kod kopyalandi!');
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -73,12 +73,12 @@ export default function Setup2FAPage() {
 
       if (data.success) {
         setStep(3);
-        toast.success('2FA başarıyla etkinleştirildi!');
+        toast.success('2FA basariyla etkinlestirildi!');
       } else {
-        setError('Geçersiz doğrulama kodu. Tekrar deneyin.');
+        setError('Gecersiz dogrulama kodu. Tekrar deneyin.');
       }
     } catch (error) {
-      toast.error('Bir hata oluştu.');
+      toast.error('Bir hata olustu.');
     } finally {
       setIsLoading(false);
     }
@@ -100,10 +100,10 @@ export default function Setup2FAPage() {
             <Shield className="w-8 h-8 text-brand-500" />
           </div>
           <h1 className="text-2xl font-bold text-white">
-            İki Faktörlü Doğrulama Kurulumu
+            Iki Faktorlu Dogrulama Kurulumu
           </h1>
           <p className="text-gray-400 mt-2">
-            Hesabınızı daha güvenli hale getirin
+            Hesabinizi daha guvenli hale getirin
           </p>
         </div>
 
@@ -141,11 +141,11 @@ export default function Setup2FAPage() {
             >
               <div className="text-center">
                 <h2 className="text-lg font-semibold text-white mb-2">
-                  1. QR Kodunu Tarayın
+                  1. QR Kodunu Tarayin
                 </h2>
                 <p className="text-sm text-gray-400">
                   Google Authenticator, Authy veya benzeri bir uygulama kullanarak
-                  aşağıdaki QR kodunu tarayın.
+                  asagidaki QR kodunu tarayin.
                 </p>
               </div>
               {qrCode && (
@@ -187,10 +187,10 @@ export default function Setup2FAPage() {
             >
               <div className="text-center">
                 <h2 className="text-lg font-semibold text-white mb-2">
-                  2. Doğrulama Kodunu Girin
+                  2. Dogrulama Kodunu Girin
                 </h2>
                 <p className="text-sm text-gray-400">
-                  Authenticator uygulamanızda görünen 6 haneli kodu girin.
+                  Authenticator uygulamanizda gorunen 6 haneli kodu girin.
                 </p>
               </div>
 
@@ -214,7 +214,7 @@ export default function Setup2FAPage() {
                     Geri
                   </Button>
                   <Button type="submit" isLoading={isLoading} className="flex-1">
-                    Doğrula
+                    Dogrula
                   </Button>
                 </div>
               </form>
@@ -233,10 +233,10 @@ export default function Setup2FAPage() {
               </div>
               <div>
                 <h2 className="text-xl font-semibold text-white mb-2">
-                  2FA Başarıyla Etkinleştirildi!
+                  2FA Basariyla Etkinlestirildi!
                 </h2>
                 <p className="text-gray-400">
-                  Hesabınız artık iki faktörlü doğrulama ile korunuyor.
+                  Hesabiniz artik iki faktorlu dogrulama ile korunuyor.
                 </p>
               </div>
               {/* Warning */}
@@ -244,11 +244,11 @@ export default function Setup2FAPage() {
                 <div className="flex gap-3">
                   <AlertTriangle className="w-5 h-5 text-yellow-500 flex-shrink-0" />
                   <div className="text-sm">
-                    <p className="font-medium text-yellow-500 mb-1">Önemli!</p>
+                    <p className="font-medium text-yellow-500 mb-1">Onemli!</p>
                     <p className="text-yellow-500/80">
-                      Authenticator uygulamanıza erişimi kaybederseniz hesabınıza
-                      giriş yapamayabilirsiniz. Yedek kodlarınızı güvenli bir
-                      yerde saklayın.
+                      Authenticator uygulamaniza erisimi kaybederseniz hesabiniza
+                      giris yapamayabilirsiniz. Yedek kodlarinizi guvenli bir
+                      yerde saklayin.
                     </p>
                   </div>
                 </div>

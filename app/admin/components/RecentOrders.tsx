@@ -26,16 +26,16 @@ export default function RecentOrders({ orders }: RecentOrdersProps) {
       {/* Header */}
       <div className="flex items-center justify-between p-6 border-b border-dark-700">
         <div>
-          <h3 className="text-lg font-semibold text-white">Son Siparişler</h3>
+          <h3 className="text-lg font-semibold text-white">Son Siparisler</h3>
           <p className="text-sm text-gray-400 mt-1">
-            En son gelen {orders.length} sipariş
+            En son gelen {orders.length} siparis
           </p>
         </div>
         <Link
           href="/admin/orders"
           className="flex items-center gap-2 text-sm text-brand-400 hover:text-brand-300 transition-colors"
         >
-          Tümünü Gör
+          Tumunu Gor
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
@@ -44,7 +44,7 @@ export default function RecentOrders({ orders }: RecentOrdersProps) {
       <div className="divide-y divide-dark-700">
         {orders.length === 0 ? (
           <div className="p-6 text-center text-gray-400">
-            Henüz sipariş bulunmuyor.
+            Henuz siparis bulunmuyor.
           </div>
         ) : (
           orders.map((order, index) => (
@@ -66,7 +66,7 @@ export default function RecentOrders({ orders }: RecentOrdersProps) {
                     {order.customer?.full_name || 'Anonim'}
                   </p>
                   <p className="text-sm text-gray-500">
-                    {order.product?.name || 'Ürün'} •{' '}
+                    {order.product?.name || 'Urun'} •{' '}
                     {formatRelativeTime(order.created_at)}
                   </p>
                 </div>

@@ -63,7 +63,7 @@ export async function POST(request: NextRequest) {
       userIp,
       successUrl: `${baseUrl}/success`,
       cancelUrl: `${baseUrl}/cancel`,
-      // Süreli subscription parametreleri
+      // Sureli subscription parametreleri
       subscriptionDuration: subscriptionDuration as number | undefined,
       paymentMode: paymentMode as SubscriptionPaymentMode | undefined,
     });

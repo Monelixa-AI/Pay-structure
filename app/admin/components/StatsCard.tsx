@@ -53,7 +53,7 @@ export default function StatsCard({
             >
               {getTrendIcon()}
               <span>{Math.abs(change)}%</span>
-              <span className="text-gray-500 ml-1">geçen aya göre</span>
+              <span className="text-gray-500 ml-1">gecen aya gore</span>
             </div>
           )}
         </div>
