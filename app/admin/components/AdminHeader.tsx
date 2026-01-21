@@ -30,10 +30,10 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
     setIsLoggingOut(true);
     try {
       await supabase.auth.signOut();
-      toast.success('Cikis yapildi');
+      toast.success('Çıkış yapıldı');
       router.push('/login');
     } catch (error) {
-      toast.error('Cikis yapilirken bir hata olustu');
+      toast.error('Çıkış yapılırken bir hata oluştu');
     } finally {
       setIsLoggingOut(false);
     }
@@ -63,7 +63,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
           className="flex items-center gap-2 px-3 py-2 text-sm text-gray-400 hover:text-white transition-colors"
         >
           <ExternalLink className="w-4 h-4" />
-          Siteyi Gor
+          Siteyi Gör
         </a>
 
         {/* Notifications */}
@@ -132,7 +132,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
                       className="w-full flex items-center gap-3 px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-dark-800 rounded-lg transition-colors"
                     >
                       <User className="w-4 h-4" />
-                      Profil Ayarlari
+                      Profil Ayarları
                     </button>
                     <button
                       onClick={() => {
@@ -143,7 +143,7 @@ export default function AdminHeader({ admin }: AdminHeaderProps) {
                       className="w-full flex items-center gap-3 px-3 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-colors"
                     >
                       <LogOut className="w-4 h-4" />
-                      {isLoggingOut ? 'Cikis yapiliyor...' : 'Cikis Yap'}
+                      {isLoggingOut ? 'Çıkış yapılıyor...' : 'Çıkış Yap'}
                     </button>
                   </div>
                 </motion.div>

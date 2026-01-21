@@ -12,9 +12,9 @@ export default async function PaymentSettingsPage() {
           <CreditCard className="w-6 h-6 text-green-400" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-white">Odeme Ayarlari</h1>
+          <h1 className="text-2xl font-bold text-white">Ödeme Ayarları</h1>
           <p className="text-gray-400 mt-1">
-            Odeme saglayicilarini ve secenekleri yonetin
+            Ödeme sağlayıcılarını ve seçenekleri yönetin
           </p>
         </div>
       </div>

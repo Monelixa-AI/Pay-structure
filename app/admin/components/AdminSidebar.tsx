@@ -28,31 +28,31 @@ interface AdminSidebarProps {
 
 const menuItems = [
   {
-    title: 'Genel',
+    title: 'GENEL',
     items: [
       { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-      { name: 'Urunler', href: '/admin/products', icon: Package },
+      { name: 'Ürünler', href: '/admin/products', icon: Package },
       { name: 'Abonelikler', href: '/admin/subscriptions', icon: CreditCard },
-      { name: 'Siparisler', href: '/admin/orders', icon: FileText },
-      { name: 'Musteriler', href: '/admin/customers', icon: Users },
+      { name: 'Siparişler', href: '/admin/orders', icon: FileText },
+      { name: 'Müşteriler', href: '/admin/customers', icon: Users },
     ],
   },
   {
-    title: 'Iletisim',
+    title: 'İLETİŞİM',
     items: [
       { name: 'Mesajlar', href: '/admin/contacts', icon: MessageSquare },
-      { name: 'Email Sablonlari', href: '/admin/email-templates', icon: Mail },
+      { name: 'Email Şablonları', href: '/admin/email-templates', icon: Mail },
       { name: 'Email Logs', href: '/admin/email-logs', icon: Mail },
     ],
   },
   {
-    title: 'Ayarlar',
+    title: 'AYARLAR',
     items: [
       { name: 'Genel Ayarlar', href: '/admin/settings', icon: Settings },
       { name: 'Logo & Marka', href: '/admin/settings/branding', icon: Image },
-      { name: 'Odeme Ayarlari', href: '/admin/settings/payments', icon: CreditCard },
-      { name: 'Email Ayarlari', href: '/admin/settings/email', icon: Mail },
-      { name: 'Guvenlik', href: '/admin/settings/security', icon: Shield },
+      { name: 'Ödeme Ayarları', href: '/admin/settings/payments', icon: CreditCard },
+      { name: 'Email Ayarları', href: '/admin/settings/email', icon: Mail },
+      { name: 'Güvenlik', href: '/admin/settings/security', icon: Shield },
     ],
   },
 ];
@@ -61,8 +61,8 @@ export default function AdminSidebar({ admin }: AdminSidebarProps) {
   const pathname = usePathname();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [expandedGroups, setExpandedGroups] = useState<string[]>([
-    'Genel',
-    'Ayarlar',
+    'GENEL',
+    'AYARLAR',
   ]);
 
   const toggleGroup = (title: string) => {

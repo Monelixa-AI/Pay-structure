@@ -63,12 +63,12 @@ export function FileUpload({
     setUploadError(null);
 
     if (file.size > maxSize * 1024 * 1024) {
-      setUploadError(`Dosya boyutu ${maxSize}MB'dan kucuk olmali.`);
+      setUploadError(`Dosya boyutu ${maxSize}MB'dan küçük olmalı.`);
       return;
     }
 
     if (!file.type.startsWith('image/')) {
-      setUploadError('Sadece resim dosyalari yuklenebilir.');
+      setUploadError('Sadece resim dosyaları yüklenebilir.');
       return;
     }
 
@@ -84,11 +84,11 @@ export function FileUpload({
       if (url) {
         setPreview(url);
       } else {
-        setUploadError('Yukleme basarisiz oldu.');
+        setUploadError('Yükleme başarısız oldu.');
         setPreview(currentImage || null);
       }
     } catch (error) {
-      setUploadError('Yukleme sirasinda bir hata olustu.');
+      setUploadError('Yükleme sırasında bir hata oluştu.');
       setPreview(currentImage || null);
     } finally {
       setIsUploading(false);
@@ -143,7 +143,7 @@ export function FileUpload({
               className="absolute inset-0 flex flex-col items-center justify-center"
             >
               <Loader2 className="w-8 h-8 text-brand-500 animate-spin" />
-              <p className="text-sm text-gray-400 mt-2">Yukleniyor...</p>
+              <p className="text-sm text-gray-400 mt-2">Yükleniyor...</p>
             </motion.div>
           ) : preview ? (
             <motion.div
@@ -181,8 +181,8 @@ export function FileUpload({
                 <ImageIcon className="w-6 h-6 text-gray-500" />
               </div>
               <p className="text-sm text-gray-400 text-center">
-                <span className="text-brand-400 font-medium">Tiklayin</span> veya
-                surukleyip birakin
+                <span className="text-brand-400 font-medium">Tıklayın</span> veya
+                sürükleyip bırakın
               </p>
               <p className="text-xs text-gray-500 mt-1">
                 PNG, JPG, WEBP (max {maxSize}MB)

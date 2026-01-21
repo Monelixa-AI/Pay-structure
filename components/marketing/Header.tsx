@@ -8,10 +8,10 @@ import { Logo, LogoIcon } from '@/components/Logo';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
-  { href: '/pricing', label: 'Fiyatlandirma' },
-  { href: '/products', label: 'Urunler' },
-  { href: '/about', label: 'Hakkimizda' },
-  { href: '/contact', label: 'Iletisim' },
+  { href: '/pricing', label: 'Fiyatlandırma' },
+  { href: '/products', label: 'Ürünler' },
+  { href: '/about', label: 'Hakkımızda' },
+  { href: '/contact', label: 'İletişim' },
 ];
 
 export default function Header() {
@@ -40,10 +40,10 @@ export default function Header() {
         <div className="hidden md:flex items-center gap-3">
           <div className="flex items-center gap-2 text-xs text-gray-400">
             <ShieldCheck className="w-4 h-4 text-green-400" />
-            Guvenli odeme
+            Güvenli ödeme
           </div>
           <Link href="/login">
-            <Button size="sm">Giris</Button>
+            <Button size="sm">Giriş</Button>
           </Link>
         </div>
 
@@ -93,7 +93,7 @@ export default function Header() {
           </nav>
           <div className="mt-6">
             <Link href="/login" onClick={() => setIsOpen(false)}>
-              <Button className="w-full">Giris</Button>
+              <Button className="w-full">Giriş</Button>
             </Link>
           </div>
         </div>

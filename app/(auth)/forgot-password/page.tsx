@@ -24,7 +24,7 @@ export default function ForgotPasswordPage() {
       if (error) throw error;
       setIsSuccess(true);
     } catch (error: any) {
-      toast.error(error.message || 'Bir hata olustu');
+      toast.error(error.message || 'Bir hata oluştu');
     } finally {
       setIsLoading(false);
     }
@@ -37,18 +37,18 @@ export default function ForgotPasswordPage() {
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-8 h-8 text-green-400" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">E-posta Gonderildi!</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">E-posta Gönderildi!</h1>
           <p className="text-gray-400 mb-6">
-            Sifre sifirlama baglantisi{' '}
-            <strong className="text-white">{email}</strong> adresine gonderildi.
-            Lutfen e-postanizi kontrol edin.
+            Şifre sıfırlama bağlantısı{' '}
+            <strong className="text-white">{email}</strong> adresine gönderildi.
+            Lütfen e-postanızı kontrol edin.
           </p>
           <Link
             href="/login"
             className="inline-flex items-center gap-2 text-brand-400 hover:text-brand-300"
           >
             <ArrowLeft className="w-4 h-4" />
-            Giris sayfasina don
+            Giriş sayfasına dön
           </Link>
         </div>
       </div>
@@ -64,12 +64,12 @@ export default function ForgotPasswordPage() {
               <span className="text-brand-500">M</span>onelixa
             </h1>
           </Link>
-          <p className="text-gray-400 mt-2">Sifrenizi sifirlayin</p>
+          <p className="text-gray-400 mt-2">Şifrenizi sıfırlayın</p>
         </div>
 
         <Card className="p-8">
           <p className="text-gray-400 text-sm mb-6">
-            E-posta adresinizi girin, size sifre sifirlama baglantisi gonderelim.
+            E-posta adresinizi girin, size şifre sıfırlama bağlantısı gönderelim.
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
@@ -82,7 +82,7 @@ export default function ForgotPasswordPage() {
               required
             />
             <Button type="submit" className="w-full" isLoading={isLoading}>
-              Sifre Sifirlama Baglantisi Gonder
+              Şifre Sıfırlama Bağlantısı Gönder
             </Button>
           </form>
         </Card>
@@ -93,7 +93,7 @@ export default function ForgotPasswordPage() {
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white"
           >
             <ArrowLeft className="w-4 h-4" />
-            Giris sayfasina don
+            Giriş sayfasına dön
           </Link>
         </p>
       </div>

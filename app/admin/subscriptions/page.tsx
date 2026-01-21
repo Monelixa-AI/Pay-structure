@@ -81,7 +81,7 @@ export default async function SubscriptionsPage() {
         <div>
           <h1 className="text-2xl font-bold text-white">Abonelikler</h1>
           <p className="text-gray-400 mt-1">
-            Tum abonelikleri takip edin ve yonetin
+            Tüm abonelikleri takip edin ve yönetin
           </p>
         </div>
       </div>
@@ -116,7 +116,7 @@ export default async function SubscriptionsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{stats.pastDue}</p>
-              <p className="text-sm text-gray-500">Gecikmis</p>
+              <p className="text-sm text-gray-500">Gecikmiş</p>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default async function SubscriptionsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{stats.cancelled}</p>
-              <p className="text-sm text-gray-500">Iptal</p>
+              <p className="text-sm text-gray-500">İptal</p>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default async function SubscriptionsPage() {
                   maximumFractionDigits: 0,
                 }).format(stats.mrr)}
               </p>
-              <p className="text-sm text-gray-500">Aylik Gelir</p>
+              <p className="text-sm text-gray-500">Aylık Gelir</p>
             </div>
           </div>
         </div>

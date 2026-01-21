@@ -20,7 +20,7 @@ export function SecurityBadges({
     },
     {
       icon: Shield,
-      text: showCloudflare ? 'Cloudflare Korumali' : 'Guvenli',
+      text: showCloudflare ? 'Cloudflare Korumalı' : 'Güvenli',
       color: 'text-blue-400',
     },
     {
@@ -53,7 +53,7 @@ export function SecurityBadges({
     <div className="bg-dark-900/50 border border-dark-700 rounded-xl p-4">
       <div className="flex items-center gap-2 mb-3">
         <CheckCircle className="w-5 h-5 text-green-400" />
-        <span className="font-medium text-white">Guvenlik Sertifikalari</span>
+        <span className="font-medium text-white">Güvenlik Sertifikaları</span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {badges.map((badge, index) => (
@@ -71,15 +71,15 @@ export function SecurityBadges({
       </div>
       {showCloudflare && (
         <p className="text-xs text-gray-500 mt-3 text-center">
-          Bu sayfa Cloudflare ile son guvenlik teknolojileri kullanilarak
-          korunmaktadir.
+          Bu sayfa Cloudflare ile son güvenlik teknolojileri kullanılarak
+          korunmaktadır.
         </p>
       )}
     </div>
   );
 }
 
-// Stripe guvenlik bilgisi komponenti
+// Stripe güvenlik bilgisi komponenti
 export function StripeSecurity() {
   return (
     <div className="bg-dark-900/50 border border-dark-700 rounded-xl p-4 text-center">
@@ -97,9 +97,9 @@ export function StripeSecurity() {
         <span className="text-sm font-medium text-gray-300">Powered by Stripe</span>
       </div>
       <p className="text-xs text-gray-500 leading-relaxed">
-        Tum odeme islemleri Stripe tarafindan guvenli bir sekilde
-        gerceklestirilir. Kart bilgileriniz bizim sunucularimizda saklanmaz,
-        dogrudan Stripe altyapisi uzerinden islenir.
+        Tüm ödeme işlemleri Stripe tarafından güvenli bir şekilde
+        gerçekleştirilir. Kart bilgileriniz bizim sunucularımızda saklanmaz,
+        doğrudan Stripe altyapısı üzerinden işlenir.
       </p>
       <div className="flex items-center justify-center gap-4 mt-3">
         <img src="/visa.svg" alt="Visa" className="h-8" />

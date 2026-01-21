@@ -36,7 +36,7 @@ function LoginContent() {
 
   useEffect(() => {
     if (error === 'unauthorized') {
-      toast.error('Bu sayfaya erisim yetkiniz yok.');
+      toast.error('Bu sayfaya erişim yetkiniz yok.');
     }
   }, [error]);
 
@@ -66,7 +66,7 @@ function LoginContent() {
 
       if (!result.isAdmin) {
         await supabase.auth.signOut();
-        setErrors({ email: 'Bu hesap admin yetkisine sahip degil.' });
+        setErrors({ email: 'Bu hesap admin yetkisine sahip değil.' });
         setIsLoading(false);
         return;
       }
@@ -80,14 +80,14 @@ function LoginContent() {
       }
 
       // 2FA yoksa direkt yonlendir
-      toast.success('Giris basarili!');
+      toast.success('Giriş başarılı!');
       router.push(redirect);
     } catch (error: any) {
       console.error('Login error:', error);
       if (error.message.includes('Invalid login credentials')) {
-        setErrors({ password: 'E-posta veya sifre hatali.' });
+        setErrors({ password: 'E-posta veya şifre hatalı.' });
       } else {
-        toast.error('Giris yapilirken bir hata olustu.');
+        toast.error('Giriş yapılırken bir hata oluştu.');
       }
     } finally {
       setIsLoading(false);
@@ -113,15 +113,15 @@ function LoginContent() {
       const result = await response.json();
 
       if (!result.success) {
-        setErrors({ twoFactorCode: 'Gecersiz dogrulama kodu.' });
+        setErrors({ twoFactorCode: 'Geçersiz doğrulama kodu.' });
         setIsLoading(false);
         return;
       }
 
-      toast.success('Giris basarili!');
+      toast.success('Giriş başarılı!');
       router.push(redirect);
     } catch (error) {
-      toast.error('Dogrulama yapilirken bir hata olustu.');
+      toast.error('Doğrulama yapılırken bir hata oluştu.');
     } finally {
       setIsLoading(false);
     }
@@ -142,7 +142,7 @@ function LoginContent() {
       });
       if (error) throw error;
     } catch (error) {
-      toast.error('Google ile giris yapilirken bir hata olustu.');
+      toast.error('Google ile giriş yapılırken bir hata oluştu.');
       setIsGoogleLoading(false);
     }
   };
@@ -164,15 +164,15 @@ function LoginContent() {
                 <Shield className="w-8 h-8 text-brand-500" />
               </div>
               <h1 className="text-2xl font-bold text-white">
-                Iki Faktorlu Dogrulama
+                İki Faktörlü Doğrulama
               </h1>
               <p className="text-gray-400 mt-2">
-                Authenticator uygulamanizda gorunen 6 haneli kodu girin.
+                Authenticator uygulamanızda görünen 6 haneli kodu girin.
               </p>
             </div>
             <form onSubmit={handleVerify2FA} className="space-y-6">
               <Input
-                label="Dogrulama Kodu"
+                label="Doğrulama Kodu"
                 placeholder="000000"
                 value={formData.twoFactorCode}
                 onChange={(e) =>
@@ -184,7 +184,7 @@ function LoginContent() {
                 autoFocus
               />
               <Button type="submit" isLoading={isLoading} className="w-full">
-                Dogrula ve Giris Yap
+                Doğrula ve Giriş Yap
               </Button>
               <button
                 type="button"
@@ -195,7 +195,7 @@ function LoginContent() {
                 }}
                 className="w-full text-sm text-gray-400 hover:text-white"
               >
-                Geri Don
+                Geri Dön
               </button>
             </form>
           </Card>
@@ -223,7 +223,7 @@ function LoginContent() {
         {/* Logo */}
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold gradient-text">Monelixa</h1>
-          <p className="text-gray-400 mt-2">Admin Paneline Giris</p>
+          <p className="text-gray-400 mt-2">Admin Paneline Giriş</p>
         </div>
 
         <Card className="p-8">
@@ -236,7 +236,7 @@ function LoginContent() {
             className="w-full mb-6"
             leftIcon={<Chrome className="w-5 h-5" />}
           >
-            Google ile Giris Yap
+            Google ile Giriş Yap
           </Button>
 
           {/* Divider */}
@@ -264,7 +264,7 @@ function LoginContent() {
               required
             />
             <Input
-              label="Sifre"
+              label="Şifre"
               type="password"
               placeholder="••••••••"
               value={formData.password}
@@ -281,7 +281,7 @@ function LoginContent() {
               className="w-full"
               rightIcon={<ArrowRight className="w-4 h-4" />}
             >
-              Giris Yap
+              Giriş Yap
             </Button>
           </form>
         </Card>
@@ -301,10 +301,10 @@ function LoginContent() {
           <div className="flex gap-3">
             <AlertCircle className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
             <div className="text-sm text-gray-400">
-              <p className="font-medium text-yellow-500 mb-1">Guvenlik Uyarisi</p>
+              <p className="font-medium text-yellow-500 mb-1">Güvenlik Uyarısı</p>
               <p>
-                Bu alan sadece yetkili yoneticiler icindir. Tum giris
-                denemeleri kayit altina alinmaktadir.
+                Bu alan sadece yetkili yöneticiler içindir. Tüm giriş
+                denemeleri kayıt altına alınmaktadır.
               </p>
             </div>
           </div>

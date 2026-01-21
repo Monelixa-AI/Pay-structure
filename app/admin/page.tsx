@@ -158,7 +158,7 @@ export default async function AdminDashboard() {
       {/* Page Header */}
       <div>
         <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-        <p className="text-gray-400 mt-1">Hos geldiniz! Iste genel bakis.</p>
+        <p className="text-gray-400 mt-1">Hoş geldiniz! İşte genel bakış.</p>
       </div>
 
       {/* Stats Grid */}
@@ -172,7 +172,7 @@ export default async function AdminDashboard() {
           delay={0}
         />
         <StatsCard
-          title="Siparisler"
+          title="Siparişler"
           value={stats.totalOrders}
           change={stats.ordersChange}
           icon={<ShoppingCart className="w-6 h-6" />}
@@ -188,7 +188,7 @@ export default async function AdminDashboard() {
           delay={0.2}
         />
         <StatsCard
-          title="Yeni Musteriler"
+          title="Yeni Müşteriler"
           value={stats.newCustomers}
           change={stats.customersChange}
           icon={<Users className="w-6 h-6" />}
@@ -210,20 +210,20 @@ export default async function AdminDashboard() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <QuickActionCard
-          title="Yeni Urun Ekle"
-          description="Yeni bir abonelik plani olusturun"
+          title="Yeni Ürün Ekle"
+          description="Yeni bir abonelik planı oluşturun"
           href="/admin/products"
           icon={<TrendingUp className="w-5 h-5" />}
         />
         <QuickActionCard
-          title="Ayarlari Duzenle"
-          description="Site ve odeme ayarlarini yonetin"
+          title="Ayarları Düzenle"
+          description="Site ve ödeme ayarlarını yönetin"
           href="/admin/settings"
           icon={<TrendingUp className="w-5 h-5" />}
         />
         <QuickActionCard
-          title="Mesajlari Kontrol Et"
-          description="Gelen iletisim formlarini gorun"
+          title="Mesajları Kontrol Et"
+          description="Gelen iletişim formlarını görün"
           href="/admin/contacts"
           icon={<TrendingUp className="w-5 h-5" />}
         />

@@ -22,7 +22,7 @@ export default function ResetPasswordPage() {
     const accessToken = hashParams.get('access_token');
 
     if (!accessToken) {
-      toast.error('Gecersiz veya suresi dolmus baglanti');
+      toast.error('Geçersiz veya süresi dolmuş bağlantı');
       router.push('/forgot-password');
     }
   }, [router]);
@@ -31,12 +31,12 @@ export default function ResetPasswordPage() {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      toast.error('Sifreler eslesmiyor');
+      toast.error('Şifreler eşleşmiyor');
       return;
     }
 
     if (formData.password.length < 8) {
-      toast.error('Sifre en az 8 karakter olmalidir');
+      toast.error('Şifre en az 8 karakter olmalıdır');
       return;
     }
 
@@ -53,7 +53,7 @@ export default function ResetPasswordPage() {
         router.push('/login');
       }, 3000);
     } catch (error: any) {
-      toast.error(error.message || 'Bir hata olustu');
+      toast.error(error.message || 'Bir hata oluştu');
     } finally {
       setIsLoading(false);
     }
@@ -66,12 +66,12 @@ export default function ResetPasswordPage() {
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <CheckCircle className="w-8 h-8 text-green-400" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">Sifre Guncellendi!</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Şifre Güncellendi!</h1>
           <p className="text-gray-400 mb-6">
-            Sifreniz basariyla guncellendi. Giris sayfasina yonlendiriliyorsunuz...
+            Şifreniz başarıyla güncellendi. Giriş sayfasına yönlendiriliyorsunuz...
           </p>
           <Link href="/login" className="text-brand-400 hover:text-brand-300">
-            Hemen giris yap
+            Hemen giriş yap
           </Link>
         </div>
       </div>
@@ -87,13 +87,13 @@ export default function ResetPasswordPage() {
               <span className="text-brand-500">M</span>onelixa
             </h1>
           </Link>
-          <p className="text-gray-400 mt-2">Yeni sifrenizi belirleyin</p>
+          <p className="text-gray-400 mt-2">Yeni şifrenizi belirleyin</p>
         </div>
 
         <Card className="p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             <Input
-              label="Yeni Sifre"
+              label="Yeni Şifre"
               type="password"
               value={formData.password}
               onChange={(e) =>
@@ -105,7 +105,7 @@ export default function ResetPasswordPage() {
             />
 
             <Input
-              label="Yeni Sifre (Tekrar)"
+              label="Yeni Şifre (Tekrar)"
               type="password"
               value={formData.confirmPassword}
               onChange={(e) =>
@@ -116,9 +116,9 @@ export default function ResetPasswordPage() {
               required
             />
 
-            <p className="text-xs text-gray-400">Sifreniz en az 8 karakter olmalidir.</p>
+            <p className="text-xs text-gray-400">Şifreniz en az 8 karakter olmalıdır.</p>
             <Button type="submit" className="w-full" isLoading={isLoading}>
-              Sifreyi Guncelle
+              Şifreyi Güncelle
             </Button>
           </form>
         </Card>

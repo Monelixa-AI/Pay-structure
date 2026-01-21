@@ -12,27 +12,27 @@ export default function Hero() {
           <div>
             <span className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-brand-500/10 text-brand-400 text-sm font-medium mb-4">
               <Zap className="w-4 h-4" />
-              Yeni nesil odeme altyapisi
+              Yeni nesil ödeme altyapısı
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Dijital urunlerinizi
-              <span className="text-brand-500"> kolayca satin</span>
+              Dijital ürünlerinizi
+              <span className="text-brand-500"> kolayca satın</span>
             </h1>
             <p className="text-lg text-gray-400 mt-4 max-w-xl">
-              Monelixa ile abonelik ve tek seferlik odemeleri tek panelden
-              yonetin. Stripe ve PayTR entegrasyonu, otomatik fatura ve
+              Monelixa ile abonelik ve tek seferlik ödemeleri tek panelden
+              yönetin. Stripe ve PayTR entegrasyonu, otomatik fatura ve
               bildirimler tek pakette.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
               <Link href="/login">
                 <Button size="lg">
-                  Hemen Basla
+                  Hemen Başla
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
               <Link href="/products">
                 <Button variant="secondary" size="lg">
-                  Urunleri Incele
+                  Ürünleri İncele
                 </Button>
               </Link>
             </div>
@@ -47,7 +47,7 @@ export default function Hero() {
               </span>
               <span className="flex items-center gap-2">
                 <Zap className="w-4 h-4 text-yellow-400" />
-                Aninda kurulum
+                Anında kurulum
               </span>
             </div>
           </div>
@@ -61,12 +61,12 @@ export default function Hero() {
                 <div className="h-10 bg-dark-800 rounded-lg" />
               </div>
               <div className="mt-6 p-4 bg-dark-800 rounded-xl border border-dark-700">
-                <p className="text-sm text-gray-400">Aylik gelir</p>
+                <p className="text-sm text-gray-400">Aylık gelir</p>
                 <p className="text-3xl font-bold text-white mt-2">TRY 124,500</p>
                 <div className="mt-4 h-2 bg-dark-700 rounded-full">
                   <div className="h-2 w-2/3 rounded-full bg-gradient-to-r from-brand-500 to-orange-500" />
                 </div>
-                <p className="text-xs text-gray-500 mt-2">+18% son 30 gun</p>
+                <p className="text-xs text-gray-500 mt-2">+18% son 30 gün</p>
               </div>
             </div>
           </div>

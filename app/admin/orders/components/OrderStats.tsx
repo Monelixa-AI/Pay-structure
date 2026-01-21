@@ -36,7 +36,7 @@ export default function OrderStats({ stats }: OrderStatsProps) {
           </div>
           <div>
             <p className="text-2xl font-bold text-white">{stats.completed}</p>
-            <p className="text-sm text-gray-500">Tamamlandi</p>
+            <p className="text-sm text-gray-500">Tamamlandı</p>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@ export default function OrderStats({ stats }: OrderStatsProps) {
           </div>
           <div>
             <p className="text-2xl font-bold text-white">{stats.failed}</p>
-            <p className="text-sm text-gray-500">Basarisiz</p>
+            <p className="text-sm text-gray-500">Başarısız</p>
           </div>
         </div>
       </div>

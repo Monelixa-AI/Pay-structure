@@ -23,7 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
         <p className="text-gray-600 mb-4 flex-grow">
-          {product.description || 'Aciklama bulunmuyor.'}
+          {product.description || 'Açıklama bulunmuyor.'}
         </p>
         {/* Price & Action */}
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
@@ -36,7 +36,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             className="btn-primary flex items-center space-x-2"
           >
             <ShoppingCart className="w-4 h-4" />
-            <span>Satin Al</span>
+            <span>Satın Al</span>
           </Link>
         </div>
       </div>

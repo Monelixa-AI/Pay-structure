@@ -84,7 +84,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.is_featured && (
               <Badge variant="warning">
                 <Star className="w-3 h-3 mr-1 fill-current" />
-                One Cikan
+                Öne Çıkan
               </Badge>
             )}
             {product.type === 'subscription' && (
@@ -93,13 +93,13 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             {hasDuration && (
               <Badge variant="info">
                 <Clock className="w-3 h-3 mr-1" />
-                Sureli
+                Süreli
               </Badge>
             )}
             {product.allow_payment_mode_choice && (
               <Badge variant="success">
                 <Wallet className="w-3 h-3 mr-1" />
-                Esnek Odeme
+                Esnek Ödeme
               </Badge>
             )}
           </div>
@@ -109,7 +109,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       <div className="p-6">
         <h3 className="text-lg font-semibold text-white mb-2">{product.name}</h3>
         <p className="text-gray-400 text-sm line-clamp-2 mb-4">
-          {product.description || 'Urun aciklamasi bulunmuyor.'}
+          {product.description || 'Ürün açıklaması bulunmuyor.'}
         </p>
 
         <div className="mb-4">

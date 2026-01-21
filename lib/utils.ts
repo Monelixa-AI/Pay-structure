@@ -68,10 +68,10 @@ export function formatRelativeTime(date: string | Date): string {
   const diffHours = Math.floor(diffMs / 3600000);
   const diffDays = Math.floor(diffMs / 86400000);
 
-  if (diffMins < 1) return 'Az once';
-  if (diffMins < 60) return `${diffMins} dakika once`;
-  if (diffHours < 24) return `${diffHours} saat once`;
-  if (diffDays < 7) return `${diffDays} gun once`;
+  if (diffMins < 1) return 'Az önce';
+  if (diffMins < 60) return `${diffMins} dakika önce`;
+  if (diffHours < 24) return `${diffHours} saat önce`;
+  if (diffDays < 7) return `${diffDays} gün önce`;
 
   return formatDate(date);
 }
@@ -133,16 +133,16 @@ export function getStatusColor(status: string): string {
 export function getStatusLabel(status: string): string {
   const labels: Record<string, string> = {
     active: 'Aktif',
-    completed: 'Tamamlandi',
+    completed: 'Tamamlandı',
     pending: 'Bekliyor',
-    processing: 'Isleniyor',
-    canceled: 'Iptal Edildi',
-    cancelled: 'Iptal Edildi',
-    failed: 'Basarisiz',
-    refunded: 'Iade Edildi',
-    past_due: 'Vadesi Gecmis',
-    incomplete: 'Tamamlanmadi',
-    expired: 'Suresi Dolmus',
+    processing: 'İşleniyor',
+    canceled: 'İptal Edildi',
+    cancelled: 'İptal Edildi',
+    failed: 'Başarısız',
+    refunded: 'İade Edildi',
+    past_due: 'Vadesi Geçmiş',
+    incomplete: 'Tamamlanmadı',
+    expired: 'Süresi Dolmuş',
   };
 
   return labels[status] || status;

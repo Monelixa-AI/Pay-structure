@@ -4,22 +4,22 @@ const features = [
   {
     title: 'Stripe + PayTR',
     description:
-      'Global ve yerel odemeleri tek panelden yonetin. Hemen aktif edin.',
+      'Global ve yerel ödemeleri tek panelden yönetin. Hemen aktif edin.',
     icon: CreditCard,
   },
   {
-    title: 'Gercek zamanli raporlar',
-    description: 'Gelir, siparis ve abonelikleri anlik takip edin.',
+    title: 'Gerçek zamanlı raporlar',
+    description: 'Gelir, sipariş ve abonelikleri anlık takip edin.',
     icon: BarChart3,
   },
   {
-    title: 'Guvenlik odakli',
-    description: 'PCI DSS, SSL ve Cloudflare ile guvenli altyapi.',
+    title: 'Güvenlik odaklı',
+    description: 'PCI DSS, SSL ve Cloudflare ile güvenli altyapı.',
     icon: ShieldCheck,
   },
   {
-    title: 'Hizli kurulum',
-    description: 'Saatler degil dakikalar icinde yayinlayin.',
+    title: 'Hızlı kurulum',
+    description: 'Saatler değil dakikalar içinde yayınlayın.',
     icon: Zap,
   },
 ];
@@ -31,7 +31,7 @@ export default function Features() {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl font-bold text-white">Neden Monelixa?</h2>
           <p className="text-gray-400 mt-3">
-            Satin alma deneyimini hizlandiran ve guveni artiran araclar.
+            Satın alma deneyimini hızlandıran ve güveni artıran araçlar.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

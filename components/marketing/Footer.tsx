@@ -3,15 +3,15 @@ import { LogoIcon } from '@/components/Logo';
 import { Shield, Lock, CreditCard } from 'lucide-react';
 
 const productLinks = [
-  { href: '/pricing', label: 'Fiyatlandirma' },
-  { href: '/products', label: 'Urunler' },
-  { href: '/about', label: 'Hakkimizda' },
+  { href: '/pricing', label: 'Fiyatlandırma' },
+  { href: '/products', label: 'Ürünler' },
+  { href: '/about', label: 'Hakkımızda' },
 ];
 
 const supportLinks = [
-  { href: '/contact', label: 'Iletisim' },
-  { href: '/terms', label: 'Kullanim Sartlari' },
-  { href: '/privacy', label: 'Gizlilik Politikasi' },
+  { href: '/contact', label: 'İletişim' },
+  { href: '/terms', label: 'Kullanım Şartları' },
+  { href: '/privacy', label: 'Gizlilik Politikası' },
 ];
 
 export default function Footer() {
@@ -25,8 +25,8 @@ export default function Footer() {
               <span className="text-lg font-semibold text-white">Monelixa</span>
             </div>
             <p className="text-sm text-gray-400 max-w-md">
-              Dijital urunlerinizi guvenle satin. Stripe ve PayTR entegrasyonu
-              ile tek noktadan odeme altyapisi.
+              Dijital ürünlerinizi güvenle satın. Stripe ve PayTR entegrasyonu
+              ile tek noktadan ödeme altyapısı.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400">
               <span className="flex items-center gap-2">
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-white mb-4">Urunler</h3>
+            <h3 className="text-sm font-semibold text-white mb-4">Ürünler</h3>
             <ul className="space-y-2 text-sm text-gray-400">
               {productLinks.map((link) => (
                 <li key={link.href}>
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-dark-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© 2026 Monelixa. Tum haklari saklidir.</p>
+          <p>© 2026 Monelixa. Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-4">
             <a
               href="https://twitter.com"

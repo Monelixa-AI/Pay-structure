@@ -52,13 +52,13 @@ export default async function ProductsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-white">Urunler</h1>
+          <h1 className="text-2xl font-bold text-white">Ürünler</h1>
           <p className="text-gray-400 mt-1">
-            Tum urun ve abonelik planlarini yonetin
+            Tüm ürün ve abonelik planlarını yönetin
           </p>
         </div>
         <Link href="/admin/products/new">
-          <Button leftIcon={<Plus className="w-5 h-5" />}>Yeni Urun</Button>
+          <Button leftIcon={<Plus className="w-5 h-5" />}>Yeni Ürün</Button>
         </Link>
       </div>
 
@@ -70,7 +70,7 @@ export default async function ProductsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{stats.total}</p>
-              <p className="text-sm text-gray-500">Toplam Urun</p>
+              <p className="text-sm text-gray-500">Toplam Ürün</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default async function ProductsPage() {
             </div>
             <div>
               <p className="text-2xl font-bold text-white">{stats.active}</p>
-              <p className="text-sm text-gray-500">Aktif Urun</p>
+              <p className="text-sm text-gray-500">Aktif Ürün</p>
             </div>
           </div>
         </div>

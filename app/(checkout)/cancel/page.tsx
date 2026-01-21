@@ -23,14 +23,14 @@ function CancelContent() {
             <XCircle className="w-10 h-10 text-red-500" />
           </div>
 
-          <h1 className="text-2xl font-bold text-white mb-2">Odeme Iptal Edildi</h1>
+          <h1 className="text-2xl font-bold text-white mb-2">Ödeme İptal Edildi</h1>
           <p className="text-gray-400 mb-6">
-            Odeme islemi tamamlanmadi. Dilerseniz tekrar deneyebilirsiniz.
+            Ödeme işlemi tamamlanmadı. Dilerseniz tekrar deneyebilirsiniz.
           </p>
 
           {orderId && (
             <div className="bg-dark-800 rounded-xl p-4 mb-6">
-              <p className="text-sm text-gray-400">Siparis No</p>
+              <p className="text-sm text-gray-400">Sipariş No</p>
               <p className="text-sm font-mono text-white">
                 #{orderId.slice(0, 8).toUpperCase()}
               </p>
@@ -39,7 +39,7 @@ function CancelContent() {
 
           <Link href="/">
             <Button className="w-full" leftIcon={<ArrowLeft className="w-4 h-4" />}>
-              Ana Sayfaya Don
+              Ana Sayfaya Dön
             </Button>
           </Link>
         </Card>
