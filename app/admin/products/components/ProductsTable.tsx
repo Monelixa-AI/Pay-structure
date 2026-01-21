@@ -25,11 +25,11 @@ export default function ProductsTable({ products }: ProductsTableProps) {
       });
       const result = await response.json();
       if (!result.success) throw new Error(result.error);
-      toast.success('Urun silindi!');
+      toast.success('Ürün silindi!');
       setDeleteModal(null);
       router.refresh();
     } catch (error: any) {
-      toast.error(error.message || 'Silme islemi basarisiz');
+      toast.error(error.message || 'Silme işlemi başarısız');
     } finally {
       setIsDeleting(false);
     }
@@ -38,7 +38,7 @@ export default function ProductsTable({ products }: ProductsTableProps) {
   const columns: Column<Product>[] = [
     {
       key: 'name',
-      label: 'Urun',
+      label: 'Ürün',
       sortable: true,
       render: (product) => (
         <div className="flex items-center gap-3">
@@ -56,7 +56,7 @@ export default function ProductsTable({ products }: ProductsTableProps) {
           <div>
             <p className="font-medium text-white">{product.name}</p>
             <p className="text-sm text-gray-500 line-clamp-1">
-              {product.description || 'Aciklama yok'}
+              {product.description || 'Açıklama yok'}
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function ProductsTable({ products }: ProductsTableProps) {
           {formatCurrency(product.price, product.currency)}
           {product.type === 'subscription' && (
             <span className="text-gray-500 text-sm">
-              /{product.billing_period === 'monthly' ? 'ay' : 'yil'}
+              /{product.billing_period === 'monthly' ? 'ay' : 'yıl'}
             </span>
           )}
         </span>
@@ -99,10 +99,10 @@ export default function ProductsTable({ products }: ProductsTableProps) {
     },
     {
       key: 'is_featured',
-      label: 'One Cikan',
+      label: 'Öne Çıkan',
       render: (product) =>
         product.is_featured ? (
-          <span className="text-yellow-400">?</span>
+          <span className="text-yellow-400">⭐</span>
         ) : (
           <span className="text-gray-600">-</span>
         ),
@@ -115,8 +115,8 @@ export default function ProductsTable({ products }: ProductsTableProps) {
         columns={columns}
         data={products}
         keyField="id"
-        searchPlaceholder="Urun ara..."
-        emptyMessage="Henuz urun eklenmemis."
+        searchPlaceholder="Ürün ara..."
+        emptyMessage="Henüz ürün eklenmemiş."
         onRowClick={(product) => router.push(`/admin/products/${product.id}`)}
         actions={(product) => (
           <div className="flex items-center gap-2">
@@ -142,16 +142,16 @@ export default function ProductsTable({ products }: ProductsTableProps) {
       <Modal
         isOpen={!!deleteModal}
         onClose={() => setDeleteModal(null)}
-        title="Urunu Sil"
+        title="Ürünü Sil"
       >
         <div className="space-y-4">
           <p className="text-gray-400">
             <span className="font-medium text-white">{deleteModal?.name}</span>{' '}
-            urununu silmek istediginize emin misiniz? Bu islem geri alinamaz.
+            ürününü silmek istediğinize emin misiniz? Bu işlem geri alınamaz.
           </p>
           <div className="flex justify-end gap-3">
             <Button variant="secondary" onClick={() => setDeleteModal(null)}>
-              Iptal
+              İptal
             </Button>
             <Button
               variant="primary"

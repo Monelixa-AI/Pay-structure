@@ -21,30 +21,30 @@ interface ProductFormProps {
 }
 
 const currencyOptions = [
-  { value: 'TRY', label: '₺ Turk Lirasi (TRY)' },
-  { value: 'USD', label: '$ Amerikan Dolari (USD)' },
+  { value: 'TRY', label: '₺ Türk Lirası (TRY)' },
+  { value: 'USD', label: '$ Amerikan Doları (USD)' },
   { value: 'EUR', label: '€ Euro (EUR)' },
 ];
 
 const typeOptions = [
-  { value: 'one_time', label: 'Tek Seferlik Odeme' },
+  { value: 'one_time', label: 'Tek Seferlik Ödeme' },
   { value: 'subscription', label: 'Abonelik' },
 ];
 
 const billingOptions = [
-  { value: 'monthly', label: 'Aylik' },
-  { value: 'yearly', label: 'Yillik' },
+  { value: 'monthly', label: 'Aylık' },
+  { value: 'yearly', label: 'Yıllık' },
 ];
 
 const durationTypeOptions = [
-  { value: 'unlimited', label: 'Suresiz (Iptal edene kadar)' },
-  { value: 'fixed', label: 'Sabit Sureli' },
-  { value: 'user_choice', label: 'Kullanici Secer' },
+  { value: 'unlimited', label: 'Süresiz (İptal edene kadar)' },
+  { value: 'fixed', label: 'Sabit Süreli' },
+  { value: 'user_choice', label: 'Kullanıcı Seçer' },
 ];
 
 const paymentModeOptions = [
-  { value: 'recurring', label: 'Tekrarli Odeme (Her periyod ode)' },
-  { value: 'upfront', label: 'Pesin Odeme (Toplam tutar tek seferde)' },
+  { value: 'recurring', label: 'Tekrarlı Ödeme (Her periyod öde)' },
+  { value: 'upfront', label: 'Peşin Ödeme (Toplam tutar tek seferde)' },
 ];
 
 export default function ProductForm({ product, onSuccess }: ProductFormProps) {
@@ -151,18 +151,18 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
     setIsLoading(true);
 
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = 'Urun adi zorunludur';
+    if (!formData.name.trim()) newErrors.name = 'Ürün adı zorunludur';
     if (!formData.price || parseFloat(formData.price) <= 0) {
-      newErrors.price = 'Gecerli bir fiyat girin';
+      newErrors.price = 'Geçerli bir fiyat girin';
     }
 
     // Subscription validations
     if (formData.type === 'subscription') {
       if (formData.duration_type === 'fixed' && !formData.subscription_duration) {
-        newErrors.subscription_duration = 'Sabit sure belirtin';
+        newErrors.subscription_duration = 'Sabit süre belirtin';
       }
       if (formData.duration_type === 'user_choice' && !formData.duration_options.trim()) {
-        newErrors.duration_options = 'En az bir sure secenegi girin';
+        newErrors.duration_options = 'En az bir süre seçeneği girin';
       }
     }
 
@@ -221,12 +221,12 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
         throw new Error(result.error);
       }
 
-      toast.success(product ? 'Urun guncellendi!' : 'Urun olusturuldu!');
+      toast.success(product ? 'Ürün güncellendi!' : 'Ürün oluşturuldu!');
       onSuccess?.();
       router.push('/admin/products');
       router.refresh();
     } catch (error: any) {
-      toast.error(error.message || 'Bir hata olustu');
+      toast.error(error.message || 'Bir hata oluştu');
     } finally {
       setIsLoading(false);
     }
@@ -236,10 +236,10 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
   const calculateExamplePrice = () => {
     if (formData.type !== 'subscription' || !formData.price) return null;
     const price = parseFloat(formData.price);
-    const period = formData.billing_period === 'monthly' ? 'ay' : 'yil';
+    const period = formData.billing_period === 'monthly' ? 'ay' : 'yıl';
 
     if (formData.duration_type === 'unlimited') {
-      return `${price.toFixed(2)} / ${period} (suresiz)`;
+      return `${price.toFixed(2)} / ${period} (süresiz)`;
     }
 
     if (formData.duration_type === 'fixed') {
@@ -247,7 +247,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
       if (duration > 0) {
         const total = price * duration;
         return formData.default_payment_mode === 'upfront'
-          ? `Toplam: ${total.toFixed(2)} (${duration} ${period} pesin)`
+          ? `Toplam: ${total.toFixed(2)} (${duration} ${period} peşin)`
           : `${price.toFixed(2)} / ${period} x ${duration} = ${total.toFixed(2)}`;
       }
     }
@@ -255,7 +255,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
     if (formData.duration_type === 'user_choice') {
       const options = formData.duration_options.split(',').map(s => parseInt(s.trim())).filter(n => !isNaN(n));
       if (options.length > 0) {
-        return `Kullanici secenekleri: ${options.join(', ')} ${period}`;
+        return `Kullanıcı seçenekleri: ${options.join(', ')} ${period}`;
       }
     }
 
@@ -268,12 +268,12 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
         <div className="lg:col-span-2 space-y-6">
           <Card className="p-6">
             <h3 className="text-lg font-semibold text-white mb-6">
-              Urun Bilgileri
+              Ürün Bilgileri
             </h3>
             <div className="space-y-6">
               <Input
-                label="Urun Adi"
-                placeholder="orn: Premium Danismanlik"
+                label="Ürün Adı"
+                placeholder="örn: Premium Danışmanlık"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
@@ -282,8 +282,8 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                 required
               />
               <Textarea
-                label="Aciklama"
-                placeholder="Urun aciklamasini yazin..."
+                label="Açıklama"
+                placeholder="Ürün açıklamasını yazın..."
                 value={formData.description}
                 onChange={(e) =>
                   setFormData({ ...formData, description: e.target.value })
@@ -318,7 +318,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Select
-                  label="Odeme Tipi"
+                  label="Ödeme Tipi"
                   options={typeOptions}
                   value={formData.type}
                   onChange={(e) =>
@@ -330,7 +330,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                 />
                 {formData.type === 'subscription' && (
                   <Select
-                    label="Faturalandirma Periyodu"
+                    label="Faturalandırma Periyodu"
                     options={billingOptions}
                     value={formData.billing_period}
                     onChange={(e) =>
@@ -350,12 +350,12 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
             <Card className="p-6">
               <div className="flex items-center gap-2 mb-6">
                 <Clock className="w-5 h-5 text-brand-500" />
-                <h3 className="text-lg font-semibold text-white">Abonelik Suresi Ayarlari</h3>
+                <h3 className="text-lg font-semibold text-white">Abonelik Süresi Ayarları</h3>
               </div>
 
               <div className="space-y-6">
                 <Select
-                  label="Sure Tipi"
+                  label="Süre Tipi"
                   options={durationTypeOptions}
                   value={formData.duration_type}
                   onChange={(e) =>
@@ -368,29 +368,29 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
 
                 {formData.duration_type === 'fixed' && (
                   <Input
-                    label={`Abonelik Suresi (${formData.billing_period === 'monthly' ? 'ay' : 'yil'})`}
+                    label={`Abonelik Süresi (${formData.billing_period === 'monthly' ? 'ay' : 'yıl'})`}
                     type="number"
                     min="1"
-                    placeholder="orn: 6"
+                    placeholder="örn: 6"
                     value={formData.subscription_duration}
                     onChange={(e) =>
                       setFormData({ ...formData, subscription_duration: e.target.value })
                     }
                     error={errors.subscription_duration}
-                    helperText="Abonelik bu sure sonunda otomatik sona erer"
+                    helperText="Abonelik bu süre sonunda otomatik sona erer"
                   />
                 )}
 
                 {formData.duration_type === 'user_choice' && (
                   <Input
-                    label={`Sure Secenekleri (${formData.billing_period === 'monthly' ? 'ay' : 'yil'}, virgulle ayirin)`}
-                    placeholder="orn: 3, 6, 12"
+                    label={`Süre Seçenekleri (${formData.billing_period === 'monthly' ? 'ay' : 'yıl'}, virgülle ayırın)`}
+                    placeholder="örn: 3, 6, 12"
                     value={formData.duration_options}
                     onChange={(e) =>
                       setFormData({ ...formData, duration_options: e.target.value })
                     }
                     error={errors.duration_options}
-                    helperText="Kullanici bu seceneklerden birini secebilir"
+                    helperText="Kullanıcı bu seçeneklerden birini seçebilir"
                   />
                 )}
 
@@ -399,7 +399,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                     <div className="border-t border-dark-700 pt-6">
                       <div className="flex items-center gap-2 mb-4">
                         <CreditCard className="w-5 h-5 text-brand-500" />
-                        <h4 className="font-medium text-white">Odeme Modu</h4>
+                        <h4 className="font-medium text-white">Ödeme Modu</h4>
                       </div>
 
                       <Switch
@@ -407,13 +407,13 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                         onChange={(checked) =>
                           setFormData({ ...formData, allow_payment_mode_choice: checked })
                         }
-                        label="Kullanici Odeme Modunu Secebilsin"
-                        description="Aktifse kullanici pesin veya taksitli odeme secebilir"
+                        label="Kullanıcı Ödeme Modunu Seçebilsin"
+                        description="Aktifse kullanıcı peşin veya taksitli ödeme seçebilir"
                       />
 
                       <div className="mt-4">
                         <Select
-                          label={formData.allow_payment_mode_choice ? "Varsayilan Odeme Modu" : "Odeme Modu"}
+                          label={formData.allow_payment_mode_choice ? "Varsayılan Ödeme Modu" : "Ödeme Modu"}
                           options={paymentModeOptions}
                           value={formData.default_payment_mode}
                           onChange={(e) =>
@@ -432,7 +432,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                         <div className="flex items-start gap-2">
                           <Info className="w-5 h-5 text-blue-400 mt-0.5" />
                           <div>
-                            <p className="text-sm font-medium text-white">Ornek Fiyatlandirma</p>
+                            <p className="text-sm font-medium text-white">Örnek Fiyatlandırma</p>
                             <p className="text-sm text-gray-400 mt-1">{calculateExamplePrice()}</p>
                           </div>
                         </div>
@@ -446,7 +446,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
 
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-white">Ozellikler</h3>
+              <h3 className="text-lg font-semibold text-white">Özellikler</h3>
               <Button
                 type="button"
                 variant="secondary"
@@ -467,7 +467,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                 >
                   <GripVertical className="w-5 h-5 text-gray-600 cursor-grab" />
                   <Input
-                    placeholder={`Ozellik ${index + 1}`}
+                    placeholder={`Özellik ${index + 1}`}
                     value={feature}
                     onChange={(e) => updateFeature(index, e.target.value)}
                     className="flex-1"
@@ -490,7 +490,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
         <div className="space-y-6">
           <Card className="p-6">
             <h3 className="text-lg font-semibold text-white mb-6">
-              Urun Gorseli
+              Ürün Görseli
             </h3>
             <FileUpload
               accept="image/*"
@@ -510,18 +510,18 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                   setFormData({ ...formData, is_active: checked })
                 }
                 label="Aktif"
-                description="Urun sitede goruntulensin"
+                description="Ürün sitede görüntülensin"
               />
               <Switch
                 checked={formData.is_featured}
                 onChange={(checked) =>
                   setFormData({ ...formData, is_featured: checked })
                 }
-                label="One Cikan"
-                description="Ana sayfada goster"
+                label="Öne Çıkan"
+                description="Ana sayfada göster"
               />
               <Input
-                label="Siralama"
+                label="Sıralama"
                 type="number"
                 value={formData.sort_order}
                 onChange={(e) =>
@@ -530,7 +530,7 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
                     sort_order: parseInt(e.target.value) || 0,
                   })
                 }
-                helperText="Kucuk sayi once gosterilir"
+                helperText="Küçük sayı önce gösterilir"
               />
             </div>
           </Card>
@@ -543,10 +543,10 @@ export default function ProductForm({ product, onSuccess }: ProductFormProps) {
           variant="secondary"
           onClick={() => router.back()}
         >
-          Iptal
+          İptal
         </Button>
         <Button type="submit" isLoading={isLoading}>
-          {product ? 'Guncelle' : 'Olustur'}
+          {product ? 'Güncelle' : 'Oluştur'}
         </Button>
       </div>
     </form>

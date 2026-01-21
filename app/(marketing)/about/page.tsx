@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Hakkimizda | Monelixa',
-  description: 'Monelixa hakkinda bilgi edinin. Misyonumuz ve vizyonumuz.',
+  title: 'Hakkımızda | Monelixa',
+  description: 'Monelixa hakkında bilgi edinin. Misyonumuz ve vizyonumuz.',
 };
 
 const values = [
@@ -21,24 +21,24 @@ const values = [
     icon: Target,
     title: 'Misyonumuz',
     description:
-      'Dijital girisimcilerin urunlerini kolayca satabilmesi icin modern ve guvenli cozumler sunmak.',
+      'Dijital girişimcilerin ürünlerini kolayca satabilmesi için modern ve güvenli çözümler sunmak.',
   },
   {
     icon: Heart,
-    title: 'Degerlerimiz',
+    title: 'Değerlerimiz',
     description:
-      'Seffaflik, guvenilirlik ve musteri memnuniyeti en onemli degerlerimizdir.',
+      'Şeffaflık, güvenilirlik ve müşteri memnuniyeti en önemli değerlerimizdir.',
   },
   {
     icon: Rocket,
     title: 'Vizyonumuz',
-    description: "Turkiye'nin en guvenilir dijital urun satis platformu olmak.",
+    description: "Türkiye'nin en güvenilir dijital ürün satış platformu olmak.",
   },
 ];
 
 const team = [
   {
-    name: 'Ahmet Yilmaz',
+    name: 'Ahmet Yılmaz',
     role: 'Kurucu & CEO',
     image: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
@@ -49,12 +49,12 @@ const team = [
   },
   {
     name: 'Mehmet Demir',
-    role: 'Urun Muduru',
+    role: 'Ürün Müdürü',
     image: 'https://randomuser.me/api/portraits/men/67.jpg',
   },
   {
-    name: 'Ayse Ozkan',
-    role: 'Musteri Basarisi',
+    name: 'Ayşe Özkan',
+    role: 'Müşteri Başarısı',
     image: 'https://randomuser.me/api/portraits/women/68.jpg',
   },
 ];
@@ -65,15 +65,15 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block px-4 py-1 rounded-full bg-brand-500/10 text-brand-400 text-sm font-medium mb-4">
-            Hakkimizda
+            Hakkımızda
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Dijital Donusumun
-            <span className="text-brand-500"> Ortaginiz</span>
+            Dijital Dönüşümün
+            <span className="text-brand-500"> Ortağınız</span>
           </h1>
           <p className="text-xl text-gray-400">
-            2024'te kurulan Monelixa, dijital girisimcilerin urunlerini guvenle
-            satabilmeleri icin modern cozumler sunar.
+            2024'te kurulan Monelixa, dijital girişimcilerin ürünlerini güvenle
+            satabilmeleri için modern çözümler sunar.
           </p>
         </div>
 
@@ -102,29 +102,29 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-white mb-6">Hikayemiz</h2>
             <div className="space-y-4 text-gray-400">
               <p>
-                Monelixa, dijital urun satisinin karmasikligindan bikan bir grup
-                girisimci tarafindan kuruldu. Mevcut cozumlerin ya cok karmasik
-                ya da cok pahali oldugunu gorduk.
+                Monelixa, dijital ürün satışının karmaşıklığından bıkan bir grup
+                girişimci tarafından kuruldu. Mevcut çözümlerin ya çok karmaşık
+                ya da çok pahalı olduğunu gördük.
               </p>
               <p>
-                Amacimiz basitti: Herkesin kolayca kullanabilecegi, guvenli ve
-                uygun fiyatli bir platform yaratmak. Bugun binlerce girisimci
-                Monelixa ile dijital urunlerini satiyor.
+                Amacımız basitti: Herkesin kolayca kullanabileceği, güvenli ve
+                uygun fiyatlı bir platform yaratmak. Bugün binlerce girişimci
+                Monelixa ile dijital ürünlerini satıyor.
               </p>
               <p>
-                Stripe ve PayTR entegrasyonlari ile hem global hem de yerel
+                Stripe ve PayTR entegrasyonları ile hem global hem de yerel
                 pazarlara hitap ediyoruz. 7/24 destek ekibimiz her zaman
-                yaninizda.
+                yanınızda.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-8">
               <div>
                 <p className="text-4xl font-bold text-brand-500">10K+</p>
-                <p className="text-gray-500">Aktif Kullanici</p>
+                <p className="text-gray-500">Aktif Kullanıcı</p>
               </div>
               <div>
                 <p className="text-4xl font-bold text-brand-500">TRY 50M+</p>
-                <p className="text-gray-500">Islenen Odeme</p>
+                <p className="text-gray-500">İşlenen Ödeme</p>
               </div>
               <div>
                 <p className="text-4xl font-bold text-brand-500">99.9%</p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Ekibimiz</h2>
             <p className="text-gray-400">
-              Tutkulu ve yetenekli ekibimizle tanisin.
+              Tutkulu ve yetenekli ekibimizle tanışın.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -169,21 +169,21 @@ export default function AboutPage() {
 
         <div className="text-center p-12 bg-dark-900 border border-dark-700 rounded-2xl">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-            Bizimle Calismak Ister misiniz?
+            Bizimle Çalışmak İster misiniz?
           </h2>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Ekibimize katilin veya urunlerinizi Monelixa ile satmaya baslayin.
+            Ekibimize katılın veya ürünlerinizi Monelixa ile satmaya başlayın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/register">
               <Button size="lg">
-                Hemen Basla
+                Hemen Başla
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link href="/contact">
               <Button variant="secondary" size="lg">
-                Iletisime Gec
+                İletişime Geç
               </Button>
             </Link>
           </div>

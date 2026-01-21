@@ -39,9 +39,9 @@ export default async function MarketingHomePage() {
         <section className="py-16 border-t border-dark-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <h2 className="text-3xl font-bold text-white">One cikan urunler</h2>
+              <h2 className="text-3xl font-bold text-white">Öne çıkan ürünler</h2>
               <p className="text-gray-400 mt-3">
-                En cok tercih edilen planlarla hizlica baslayin.
+                En çok tercih edilen planlarla hızlıca başlayın.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -55,8 +55,8 @@ export default async function MarketingHomePage() {
 
       <PricingSection
         products={products}
-        title="Abonelik planlari"
-        subtitle="Aylik veya yillik odeme secenekleri."
+        title="Abonelik planları"
+        subtitle="Aylık veya yıllık ödeme seçenekleri."
       />
 
       <Testimonials />

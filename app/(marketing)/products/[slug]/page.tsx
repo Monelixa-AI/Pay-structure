@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await getProduct(params.slug);
 
   if (!product) {
-    return { title: 'Urun Bulunamadi | Monelixa' };
+    return { title: 'Ürün Bulunamadı | Monelixa' };
   }
 
   return {
@@ -60,10 +60,10 @@ export default async function ProductDetailPage({ params }: Props) {
   }
 
   const features = product.features || [
-    'Tum temel ozellikler',
-    'E-posta destegi',
-    'Otomatik guncellemeler',
-    '7 gun para iade garantisi',
+    'Tüm temel özellikler',
+    'E-posta desteği',
+    'Otomatik güncellemeler',
+    '7 gün para iade garantisi',
   ];
 
   return (
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({ params }: Props) {
             className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Tum Urunler
+            Tüm Ürünler
           </Link>
         </div>
 
@@ -99,7 +99,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 {product.is_featured && (
                   <Badge variant="warning">
                     <Star className="w-3 h-3 mr-1 fill-current" />
-                    One Cikan
+                    Öne Çıkan
                   </Badge>
                 )}
                 {product.type === 'subscription' && (
@@ -111,15 +111,15 @@ export default async function ProductDetailPage({ params }: Props) {
             <div className="mt-6 grid grid-cols-3 gap-4">
               <div className="flex items-center gap-2 p-4 bg-dark-900 rounded-xl border border-dark-700">
                 <Shield className="w-5 h-5 text-green-400" />
-                <span className="text-sm text-gray-300">Guvenli Odeme</span>
+                <span className="text-sm text-gray-300">Güvenli Ödeme</span>
               </div>
               <div className="flex items-center gap-2 p-4 bg-dark-900 rounded-xl border border-dark-700">
                 <Zap className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm text-gray-300">Aninda Teslimat</span>
+                <span className="text-sm text-gray-300">Anında Teslimat</span>
               </div>
               <div className="flex items-center gap-2 p-4 bg-dark-900 rounded-xl border border-dark-700">
                 <RefreshCw className="w-5 h-5 text-blue-400" />
-                <span className="text-sm text-gray-300">7 Gun Iade</span>
+                <span className="text-sm text-gray-300">7 Gün İade</span>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   />
                 ))}
               </div>
-              <span className="text-gray-400">(128 degerlendirme)</span>
+              <span className="text-gray-400">(128 değerlendirme)</span>
             </div>
 
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -145,7 +145,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
             <p className="text-gray-400 text-lg mb-6">
               {product.description ||
-                'Bu urun hakkinda detayli bilgi icin bizimle iletisime gecin.'}
+                'Bu ürün hakkında detaylı bilgi için bizimle iletişime geçin.'}
             </p>
 
             <Card className="p-6 mb-6">
@@ -155,7 +155,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 </span>
                 {product.type === 'subscription' && (
                   <span className="text-gray-500">
-                    /{product.billing_period === 'monthly' ? 'ay' : 'yil'}
+                    /{product.billing_period === 'monthly' ? 'ay' : 'yıl'}
                   </span>
                 )}
               </div>
@@ -163,11 +163,11 @@ export default async function ProductDetailPage({ params }: Props) {
               <Link href={`/checkout/${product.id}`}>
                 <Button size="lg" className="w-full">
                   <ShoppingCart className="w-5 h-5 mr-2" />
-                  Hemen Satin Al
+                  Hemen Satın Al
                 </Button>
               </Link>
               <p className="text-center text-sm text-gray-500 mt-4">
-                256-bit SSL ile guvenli odeme
+                256-bit SSL ile güvenli ödeme
               </p>
             </Card>
 
@@ -189,7 +189,7 @@ export default async function ProductDetailPage({ params }: Props) {
               <div className="text-center p-4 bg-dark-900 rounded-xl border border-dark-700">
                 <Users className="w-6 h-6 text-brand-400 mx-auto mb-2" />
                 <p className="text-xl font-bold text-white">500+</p>
-                <p className="text-xs text-gray-500">Aktif Kullanici</p>
+                <p className="text-xs text-gray-500">Aktif Kullanıcı</p>
               </div>
               <div className="text-center p-4 bg-dark-900 rounded-xl border border-dark-700">
                 <Clock className="w-6 h-6 text-brand-400 mx-auto mb-2" />

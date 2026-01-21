@@ -7,8 +7,8 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: 'Fiyatlandirma | Monelixa',
-  description: 'Aylik ve yillik abonelik planlarini karsilastirin.',
+  title: 'Fiyatlandırma | Monelixa',
+  description: 'Aylık ve yıllık abonelik planlarını karşılaştırın.',
 };
 
 async function getProducts(): Promise<Product[]> {
@@ -30,7 +30,7 @@ export default async function PricingPage() {
       <PricingSection
         products={products}
         title="Planlar ve fiyatlar"
-        subtitle="Ihtiyaciniza gore esnek planlar."
+        subtitle="İhtiyacınıza göre esnek planlar."
       />
     </div>
   );

@@ -15,7 +15,7 @@ export default function PricingCard({ product, featured }: PricingCardProps) {
   const features =
     product.features?.length > 0
       ? product.features.slice(0, 5)
-      : ['Tanimli urun haklari', 'Email bildirimi', '7/24 destek'];
+      : ['Tanımlı ürün hakları', 'Email bildirimi', '7/24 destek'];
 
   return (
     <div
@@ -27,11 +27,11 @@ export default function PricingCard({ product, featured }: PricingCardProps) {
     >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-white">{product.name}</h3>
-        {product.is_featured && <Badge variant="warning">One Cikan</Badge>}
+        {product.is_featured && <Badge variant="warning">Öne Çıkan</Badge>}
       </div>
 
       <p className="text-sm text-gray-400 mb-6">
-        {product.description || 'Plan detaylari yakinda eklenecek.'}
+        {product.description || 'Plan detayları yakında eklenecek.'}
       </p>
 
       <div className="flex items-end gap-2 mb-6">
@@ -40,14 +40,14 @@ export default function PricingCard({ product, featured }: PricingCardProps) {
         </span>
         {product.type === 'subscription' && (
           <span className="text-sm text-gray-500">
-            /{product.billing_period === 'yearly' ? 'yil' : 'ay'}
+            /{product.billing_period === 'yearly' ? 'yıl' : 'ay'}
           </span>
         )}
       </div>
 
       <Link href={`/checkout/${product.id}`}>
         <Button className="w-full" variant={featured ? 'primary' : 'secondary'}>
-          Satin Al
+          Satın Al
         </Button>
       </Link>
 

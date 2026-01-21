@@ -7,12 +7,12 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Monelixa - Dijital Urun Satis Platformu',
+    default: 'Monelixa - Dijital Ürün Satış Platformu',
     template: '%s | Monelixa',
   },
   description:
-    'Dijital urunlerinizi ve aboneliklerinizi kolayca satin. Stripe ve PayTR entegrasyonu ile guvenli odeme.',
-  keywords: ['dijital urun', 'abonelik', 'e-ticaret', 'stripe', 'paytr', 'saas'],
+    'Dijital ürünlerinizi ve aboneliklerinizi kolayca satın. Stripe ve PayTR entegrasyonu ile güvenli ödeme.',
+  keywords: ['dijital ürün', 'abonelik', 'e-ticaret', 'stripe', 'paytr', 'saas'],
   authors: [{ name: 'Monelixa' }],
   creator: 'Monelixa',
   openGraph: {
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     locale: 'tr_TR',
     url: 'https://monelixa.com',
     siteName: 'Monelixa',
-    title: 'Monelixa - Dijital Urun Satis Platformu',
-    description: 'Dijital urunlerinizi ve aboneliklerinizi kolayca satin.',
+    title: 'Monelixa - Dijital Ürün Satış Platformu',
+    description: 'Dijital ürünlerinizi ve aboneliklerinizi kolayca satın.',
     images: [
       {
         url: '/og-image.png',
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Monelixa - Dijital Urun Satis Platformu',
-    description: 'Dijital urunlerinizi ve aboneliklerinizi kolayca satin.',
+    title: 'Monelixa - Dijital Ürün Satış Platformu',
+    description: 'Dijital ürünlerinizi ve aboneliklerinizi kolayca satın.',
     images: ['/og-image.png'],
   },
   robots: {
